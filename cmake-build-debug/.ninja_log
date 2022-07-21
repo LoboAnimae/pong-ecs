@@ -1,0 +1,6 @@
+# ninja log v5
+0	10	1658443627756221179	build.ninja	ea61453b533c5c4c
+0	8	1658442417553781585	CMakeFiles/PongProject.dir/src/Game/GameController.cpp.o	2f951b62c1f39e89
+0	8	1658442417553781585	CMakeFiles/PongProject.dir/src/Controller/Controller.cpp.o	3cee94121d6474e8
+0	268	1658442417813781958	CMakeFiles/PongProject.dir/src/main.cpp.o	ae9f3dc2737c8118
+268	298	1658442417840448663	PongProject	84ff3f8b7b6c0892
