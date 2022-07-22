@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "PongProject::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-PongProject-Debug-fd17167dbf399f14ec16.json",
+					"jsonFile" : "target-PongProject-Debug-dbacfb1ae52befd60ade.json",
 					"name" : "PongProject",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/cmake-build-debug",
-		"source" : "/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject"
+		"build" : "/Users/yagdrassyl/Documents/Code/University/GameEngineArchitecture/pong/cmake-build-debug",
+		"source" : "/Users/yagdrassyl/Documents/Code/University/GameEngineArchitecture/pong"
 	},
 	"version" : 
 	{

@@ -1,4 +1,4 @@
-/opt/clion-2022.1.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/opt/clion-2022.1.3/bin/ninja/linux/ninja -G Ninja -S /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject -B /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/cmake-build-debug
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -G Ninja -S /Users/yagdrassyl/Documents/Code/University/GameEngineArchitecture/pong -B /Users/yagdrassyl/Documents/Code/University/GameEngineArchitecture/pong/cmake-build-debug
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/cmake-build-debug
+-- Build files have been written to: /Users/yagdrassyl/Documents/Code/University/GameEngineArchitecture/pong/cmake-build-debug

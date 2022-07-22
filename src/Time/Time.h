@@ -4,24 +4,25 @@
 
 #ifndef PONGPROJECT_TIME_H
 #define PONGPROJECT_TIME_H
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 namespace Game {
-
     class Time {
 
     public:
-        Time(int FPS);
+        explicit Time(int FPS);
         ~Time();
         void frameStart();
         void frameEnd();
         bool allowedNextFrame();
     private:
         int FPS;
-        Uint32 frameStartTimestamp;
-        Uint32 frameEndTimestamp;
-        float frameDuration;
-        float dT;
+        Uint64 frameStartTimestamp;
+        Uint64 frameEndTimestamp;
+        Uint64 frameTicks;
+        Uint64 deltaTime;
+		Uint64 currentTicks;
+		Uint64 tick;
 
     };
 

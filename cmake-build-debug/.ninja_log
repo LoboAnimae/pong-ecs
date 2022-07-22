@@ -1,6 +1,10 @@
 # ninja log v5
-0	10	1658443627756221179	build.ninja	ea61453b533c5c4c
-0	8	1658442417553781585	CMakeFiles/PongProject.dir/src/Game/GameController.cpp.o	2f951b62c1f39e89
-0	8	1658442417553781585	CMakeFiles/PongProject.dir/src/Controller/Controller.cpp.o	3cee94121d6474e8
-0	268	1658442417813781958	CMakeFiles/PongProject.dir/src/main.cpp.o	ae9f3dc2737c8118
+0	45	1658450091399972457	build.ninja	d588e116aaac20d4
+48	195	1658450036144587818	CMakeFiles/PongProject.dir/src/Controller/Controller.cpp.o	587727deb59c33f6
+48	195	1658450036144588068	CMakeFiles/PongProject.dir/src/Loop/Loop.cpp.o	494dad728cb38b18
 268	298	1658442417840448663	PongProject	84ff3f8b7b6c0892
+49	194	1658450036144628859	CMakeFiles/PongProject.dir/src/Events/Event.cpp.o	dfc9d08b00c5593c
+55	86	1658450047360713585	CMakeFiles/PongProject.dir/src/Screen/Screen.cpp.o	21f25a3335f5e53d
+54	487	1658450047760458150	CMakeFiles/PongProject.dir/src/main.cpp.o	a43db6ee11bdfa1c
+55	229	1658450047502932250	CMakeFiles/PongProject.dir/src/Game/GameController.cpp.o	6fe2c4a45b5fa130
+55	212	1658450047486364229	CMakeFiles/PongProject.dir/src/Time/Time.cpp.o	53a6509979c57a14

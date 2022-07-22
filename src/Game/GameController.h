@@ -10,13 +10,20 @@
 #include "../Screen/Screen.h"
 
 namespace Game {
+
+	struct ScreenParams {
+		int screen_width;
+		int screen_height;
+		const char* title;
+	};
     struct InitParameters {
         input::Controller* controllers;
-
+		int FPS;
+		ScreenParams screen_params;
     };
     class Master {
     public:
-        Master(InitParameters params);
+        explicit Master(InitParameters params);
 
         ~Master();
 
@@ -29,6 +36,7 @@ namespace Game {
 
 
     private:
+		bool isRunning;
         input::Controller* controllers;
         Game::Time time_controller;
         Game::Event event_controller;
