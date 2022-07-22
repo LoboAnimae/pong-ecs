@@ -1,3 +1,0 @@
-/Users/yagdrassyl/Documents/Code/University/GameEngineArchitecture/pong/cmake-build-debug/CMakeFiles/PongProject.dir
-/Users/yagdrassyl/Documents/Code/University/GameEngineArchitecture/pong/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/yagdrassyl/Documents/Code/University/GameEngineArchitecture/pong/cmake-build-debug/CMakeFiles/rebuild_cache.dir
