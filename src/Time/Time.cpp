@@ -4,7 +4,7 @@
 
 
 #include "Time.h"
-#include <SDL.h>
+#include <SDL2/SDL.h>
 namespace Game {
 	void Time::frameStart()
 	{
@@ -39,8 +39,7 @@ namespace Game {
 	}
 	bool Time::allowedNextFrame()
 	{
-
-
+        return true;
 	}
 	Time::~Time()
 	{
