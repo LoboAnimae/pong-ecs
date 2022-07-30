@@ -18,7 +18,7 @@ namespace Game::Screen {
 
     struct Options : AllowError {
 
-        Options(StandardError *error) : AllowError(error) {}
+        explicit Options(StandardError *error) : AllowError(error) {}
     };
 
     /**

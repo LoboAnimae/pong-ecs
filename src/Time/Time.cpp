@@ -5,44 +5,46 @@
 
 #include "Time.h"
 #include <SDL2/SDL.h>
-namespace Game {
-	void Time::frameStart()
-	{
-		frameStartTimestamp = SDL_GetTicks64();
-		// Expect frameEndTimestamp to never be 0
-		if (!frameEndTimestamp) deltaTime = frameStartTimestamp;
-		else deltaTime = frameEndTimestamp - frameStartTimestamp;
-	}
 
-	void Time::frameEnd()
-	{
-		// Right now
-		currentTicks = frameEndTimestamp - frameStartTimestamp;
-		if (currentTicks < frameTicks) {
-			SDL_Delay(frameTicks - currentTicks);
-		}
-		tick++;
-	}
-	Time::Time(int p_FPS)
-	{
-		FPS = p_FPS;
-		frameStartTimestamp = 0;
-		frameEndTimestamp = 0;
-		deltaTime = 0;
-		currentTicks = 0;
-		tick = 0;
-		// Drop everything under the milliseconds
-		frameTicks = (int)((1.0f / (float)p_FPS) * 1000.0f); // Data value is an int. It will drop the data.
+namespace Game::Time {
+    void Time::frameStart() {
+        frameStartTimestamp = SDL_GetTicks64();
+        // Expect frameEndTimestamp to never be 0
+        if (!frameEndTimestamp) deltaTime = frameStartTimestamp;
+        else deltaTime = frameEndTimestamp - frameStartTimestamp;
+    }
 
-		// Frames will be measured in ticks. A frame will be n ticks.
+    void Time::frameEnd() {
+        // Right now
+        currentTicks = frameEndTimestamp - frameStartTimestamp;
+        if (currentTicks < frameTicks) {
+            SDL_Delay(frameTicks - currentTicks);
+        }
+        tick++;
+    }
 
-	}
-	bool Time::allowedNextFrame()
-	{
+    Time::Time(int p_FPS, Game::Time::Options options) : ErrorSupport(options.error, (char *)"Time Manager") {
+        FPS = p_FPS;
+        frameStartTimestamp = 0;
+        frameEndTimestamp = 0;
+        deltaTime = 0;
+        currentTicks = 0;
+        tick = 0;
+        // Drop everything under the milliseconds
+        frameTicks = (int) ((1.0f / (float) p_FPS) * 1000.0f); // Data value is an int. It will drop the data.
+
+        // Frames will be measured in ticks. A frame will be n ticks.
+
+    }
+
+    bool Time::allowedNextFrame() {
         return true;
-	}
-	Time::~Time()
-	{
+    }
 
-	}
+    Time *New(int FPS, Game::Time::Options options) {
+        return new Time(FPS, options);
+    }
+
+
+    Time::~Time() = default;
 } // Game

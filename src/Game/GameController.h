@@ -27,7 +27,9 @@ namespace Game {
 
     struct InitParameters {
         int FPS;
-        Game::Screen::Screen* screen;
+        Game::Screen::Screen *screen;
+        Game::EventManager::Event *event;
+        Game::Time::Time *time;
     };
 
     class Master {
@@ -47,10 +49,15 @@ namespace Game {
 
     private:
         bool isRunning;
-        Game::Time* time_controller;
-        Game::Event* event_controller;
-        Game::Screen::Screen* screen_controller;
-        StandardError *present_error;
+        Game::Time::Time *timeController;
+        Game::EventManager::Event *eventController;
+        Game::Screen::Screen *screenController;
+        StandardError *presentError;
+
+
+        void setScreen(Game::Screen::Screen*);
+        void setTime(Game::Time::Time*);
+        void setEventManager(Game::EventManager::Event*);
     };
 
 }

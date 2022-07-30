@@ -8,53 +8,38 @@
 #include <iostream>
 
 bool Game::Master::has_error() {
-    return present_error->exists;
+    return presentError->exists;
 }
 
 void Game::Master::run_loop() {
     while (isRunning && !has_error()) {
-        time_controller->frameStart();
-        event_controller->handle_events();
-        screen_controller->update();
-        screen_controller->render();
-        time_controller->frameEnd();
+        timeController->frameStart();
+        eventController->handle_events();
+        screenController->update();
+        screenController->render();
+        timeController->frameEnd();
     }
 
-    if (present_error->exists) {
-        std::string errorMessage = std::string(present_error->message);
+    if (presentError->exists) {
+        std::string errorMessage = std::string(presentError->message);
         ConsoleMessage::error(errorMessage);
     }
 
 }
 
+
+
 Game::Master::Master(Game::InitParameters params) {
-    time_controller = new Time(params.FPS);
-    present_error = new StandardError();
+    presentError = new StandardError();
 
-    if (params.screen) {
-        screen_controller = params.screen;
-
-        if (screen_controller->errorIsSet()) {
-            std::string warningMessage = "New screen \"";
-            warningMessage += params.screen->title;
-            warningMessage += " \" had an error manager already existing, but a new one has been set.";
-            ConsoleMessage::warning(warningMessage);
-        }
-        screen_controller->setErrorManager(present_error);
-
-    } else {
-        screen_controller = Game::Screen::New("New Game",
-                                              800,
-                                              600,
-                                              Game::Screen::Options{present_error}
-        );
-    }
-    event_controller = new Event({.parent_error = present_error, .controllableEntities = nullptr});
+    setScreen(params.screen);
+    setTime(params.time);
+    setEventManager(params.event);
     isRunning = true;
 }
 
 void Game::Master::init() {
-    screen_controller->init();
+    screenController->init();
 }
 
 void Game::Master::setup() {
@@ -63,5 +48,61 @@ void Game::Master::setup() {
 }
 
 Game::Master::~Master() {
-    delete screen_controller;
+    delete screenController;
+}
+
+void Game::Master::setTime(Game::Time::Time *time) {
+    if (time) {
+        timeController = time;
+
+        if (timeController->errorIsSet()) {
+            std::string warningMessage = "A time manager with an existing error controller has overridden the previous error manager. Possible memory leak.";
+            ConsoleMessage::warning(warningMessage);
+        }
+        timeController->setErrorManager(presentError);
+
+    } else {
+        ConsoleMessage::info("Using default parameters for \"Time\"");
+
+        timeController = Game::Time::New(60, Game::Time::Options{presentError});
+    }
+}
+
+void Game::Master::setEventManager(Game::EventManager::Event *eventManager) {
+    if (eventManager) {
+        eventController = eventManager;
+
+        if (eventController->errorIsSet()) {
+            std::string warningMessage = "Event manager had an error manager already, but a new one has been set. Possible memory leak.";
+            ConsoleMessage::warning(warningMessage);
+        }
+        eventController->setErrorManager(presentError);
+
+    } else {
+        ConsoleMessage::info("Using default parameters for \"EventManager\"");
+        eventController = Game::EventManager::New(
+                Game::EventManager::Options{.parentError = presentError, .controllableEntities = nullptr});
+    }
+}
+
+void Game::Master::setScreen(Game::Screen::Screen *screen) {
+    if (screen) {
+        screenController = screen;
+
+        if (screenController->errorIsSet()) {
+            std::string warningMessage = "New screen \"";
+            warningMessage += screen->title;
+            warningMessage += " \" had an error manager already existing, but a new one has been set.";
+            ConsoleMessage::warning(warningMessage);
+        }
+        screenController->setErrorManager(presentError);
+
+    } else {
+        ConsoleMessage::info("Using default parameters for \"Screen\"");
+        screenController = Game::Screen::New("New Game",
+                                             800,
+                                             600,
+                                             Game::Screen::Options{presentError}
+        );
+    }
 }
