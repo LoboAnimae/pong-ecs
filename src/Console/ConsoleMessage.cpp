@@ -6,7 +6,7 @@
 #include <iostream>
 
 void ConsoleMessage::printMessage(char *level, char *message, Color color, ConsoleLevel lvl) {
-    if (ConsoleLogging.passesConsoleLevel()) return;
+    if (ConsoleLogging.passesConsoleLevel(lvl)) return;
     std::cout << "\033[" << color << "m" << level << "\033[" << RESET << "m" << message << std::endl;
 }
 

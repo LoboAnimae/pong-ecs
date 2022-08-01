@@ -22,16 +22,17 @@ namespace Game::Time {
 
         void frameStart();
 
+        float deltaTime;
+
         void frameEnd();
 
     private:
         int FPS;
-        Uint64 frameStartTimestamp;
-        Uint64 frameEndTimestamp;
-        Uint64 frameTicks;
-        Uint64 deltaTime;
-        Uint64 currentTicks;
-        Uint64 tick;
+        Uint32 frameStartTimestamp;
+        Uint32 frameEndTimestamp;
+        Uint32 frameTicks;
+        Uint32 currentTicks;
+        Uint32 tick;
 
     };
 

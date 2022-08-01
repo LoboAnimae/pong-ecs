@@ -1,3 +1,0 @@
-/home/yagdrassyl/CLionProjects/pong/cmake-build-debug/CMakeFiles/PongProject.dir
-/home/yagdrassyl/CLionProjects/pong/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/yagdrassyl/CLionProjects/pong/cmake-build-debug/CMakeFiles/rebuild_cache.dir

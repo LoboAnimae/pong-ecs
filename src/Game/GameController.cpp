@@ -11,7 +11,7 @@ void Game::Manager::runLoop() {
     while (*Game::isRunning && !Game::hasError()) {
         components->timeController->frameStart();
         components->eventController->handleEvents(&ball, &paddle);
-        components->screenController->update(&ball, &paddle);
+        components->screenController->update(&ball, &paddle, components->timeController->deltaTime);
         components->screenController->render(&ball, &paddle);
         components->timeController->frameEnd();
     }
