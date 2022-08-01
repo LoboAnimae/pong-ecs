@@ -4,7 +4,7 @@
 
 #ifndef PONGPROJECT_ERROR_H
 #define PONGPROJECT_ERROR_H
-
+#include <string>
 namespace Game {
 
     enum ERROR_TYPE {
@@ -15,12 +15,12 @@ namespace Game {
 
 
     struct StandardError {
-        char *message;
+        std::string message;
         ERROR_TYPE errorType;
-        char *caller;
+        std::string caller;
         bool exists;
 
-        StandardError() : message((char *) ""), errorType(INFO), caller((char *) ""), exists(false) {
+        StandardError() : errorType(INFO), exists(false) {
         }
     };
 
@@ -33,7 +33,7 @@ namespace Game {
         bool errorIsSet();
 
         void setErrorManager(StandardError* newError);
-        void setNewError(char *error, ERROR_TYPE type);
+        void setNewError(std::string error, ERROR_TYPE type);
 
     protected:
         StandardError *masterError;

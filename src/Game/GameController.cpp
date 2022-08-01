@@ -3,106 +3,127 @@
 //
 
 #include "GameController.h"
-#include "../Screen/Screen.h"
 #include "../Console/ConsoleMessage.h"
-#include <iostream>
+#include "../Static.h"
 
-bool Game::Master::has_error() {
-    return presentError->exists;
-}
 
-void Game::Master::run_loop() {
-    while (isRunning && !has_error()) {
-        timeController->frameStart();
-        eventController->handle_events();
-        screenController->update();
-        screenController->render();
-        timeController->frameEnd();
+void Game::Manager::runLoop() {
+    while (*Game::isRunning && !Game::hasError()) {
+        components->timeController->frameStart();
+        components->eventController->handleEvents(ball, paddle);
+        components->screenController->update(ball, paddle);
+        components->screenController->render(ball, paddle);
+        components->timeController->frameEnd();
     }
 
-    if (presentError->exists) {
-        std::string errorMessage = std::string(presentError->message);
+    if (Game::hasError()) {
+        std::string errorMessage = std::string(Game::getError()->message);
         ConsoleMessage::error(errorMessage);
     }
 
 }
 
-
-
-Game::Master::Master(Game::InitParameters params) {
-    presentError = new StandardError();
-
-    setScreen(params.screen);
-    setTime(params.time);
-    setEventManager(params.event);
-    isRunning = true;
+Game::Manager::Manager(Game::InitParameters params) : ball(), paddle() {
+    Game::isRunning = new bool(true);
+    Game::gameError = new StandardError();
+    components = new Components();
+    setComponents(params.screen, params.time, params.event);
 }
 
-void Game::Master::init() {
-    screenController->init();
+void Game::Manager::init() {
+    components->screenController->init();
 }
 
-void Game::Master::setup() {
-//    for ()
+void Game::Manager::setup() {
+    auto dims = components->screenController->dims;
+    ball.x = 20;
+    ball.y = 20;
+    ball.w = 15;
+    ball.h = 15;
+
+    paddle.x = (dims->width / 2) - 50;
+    paddle.y = dims->height - 20;
+    paddle.w = 100;
+    paddle.h = 20;
 
 }
 
-Game::Master::~Master() {
-    delete screenController;
+Game::Manager::~Manager() {
+    delete components->screenController;
 }
 
-void Game::Master::setTime(Game::Time::Time *time) {
+void Game::Manager::setTime(Game::Time::Time *time) {
     if (time) {
-        timeController = time;
+        components->timeController = time;
 
-        if (timeController->errorIsSet()) {
+        if (components->timeController->errorIsSet()) {
             std::string warningMessage = "A time manager with an existing error controller has overridden the previous error manager. Possible memory leak.";
             ConsoleMessage::warning(warningMessage);
         }
-        timeController->setErrorManager(presentError);
+        components->timeController->setErrorManager(Game::getError());
 
     } else {
-        ConsoleMessage::info("Using default parameters for \"Time\"");
+        ConsoleMessage::info((char *) "Using default parameters for \"Time\"");
 
-        timeController = Game::Time::New(60, Game::Time::Options{presentError});
+        components->timeController = Game::Time::New(60, Game::Time::Options{Game::getError()});
     }
 }
 
-void Game::Master::setEventManager(Game::EventManager::Event *eventManager) {
+void Game::Manager::setEventManager(Game::EventManager::Event *eventManager) {
     if (eventManager) {
-        eventController = eventManager;
+        components->eventController = eventManager;
 
-        if (eventController->errorIsSet()) {
+        if (components->eventController->errorIsSet()) {
             std::string warningMessage = "Event manager had an error manager already, but a new one has been set. Possible memory leak.";
             ConsoleMessage::warning(warningMessage);
         }
-        eventController->setErrorManager(presentError);
+        components->eventController->setErrorManager(Game::getError());
 
     } else {
-        ConsoleMessage::info("Using default parameters for \"EventManager\"");
-        eventController = Game::EventManager::New(
-                Game::EventManager::Options{.parentError = presentError, .controllableEntities = nullptr});
+        ConsoleMessage::info((char *) "Using default parameters for \"EventManager\"");
+        components->eventController = Game::EventManager::New(
+                Game::EventManager::Options{.parentError = Game::getError(), .controllableEntities = nullptr});
     }
 }
 
-void Game::Master::setScreen(Game::Screen::Screen *screen) {
+void Game::Manager::setScreen(Game::Screen::Screen *screen) {
     if (screen) {
-        screenController = screen;
+        components->screenController = screen;
 
-        if (screenController->errorIsSet()) {
+        if (components->screenController->errorIsSet()) {
             std::string warningMessage = "New screen \"";
             warningMessage += screen->title;
             warningMessage += " \" had an error manager already existing, but a new one has been set.";
             ConsoleMessage::warning(warningMessage);
         }
-        screenController->setErrorManager(presentError);
+        components->screenController->setErrorManager(Game::getError());
 
     } else {
-        ConsoleMessage::info("Using default parameters for \"Screen\"");
-        screenController = Game::Screen::New("New Game",
-                                             800,
-                                             600,
-                                             Game::Screen::Options{presentError}
+        ConsoleMessage::info((char *) "Using default parameters for \"Screen\"");
+        components->screenController = Game::Screen::New("New Game",
+                                                         800,
+                                                         600,
+                                                         Game::Screen::Options{Game::getError()}
         );
     }
+}
+
+void
+Game::Manager::setComponents(Game::Screen::Screen *screen, Game::Time::Time *time, Game::EventManager::Event *event) {
+    setScreen(screen);
+    setTime(time);
+    setEventManager(event);
+
+}
+
+Game::Time::Time *Game::Components::getTimeController() {
+    return timeController;
+}
+
+Game::EventManager::Event *Game::Components::getEventController() {
+    return eventController;
+}
+
+Game::Screen::Screen *Game::Components::getScreenController() {
+    return screenController;
 }

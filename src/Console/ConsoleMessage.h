@@ -4,7 +4,9 @@
 
 #ifndef PONG_OPENGL_CONSOLEMESSAGE_H
 #define PONG_OPENGL_CONSOLEMESSAGE_H
+
 #include <string>
+
 enum Color {
     BLACK = 30,
     RED,
@@ -19,17 +21,14 @@ enum Color {
 
 class ConsoleMessage {
 public:
-    static void info(char *message);
-    static void info(const std::string& message);
+    static void info(const std::string &message);
 
-    static void warning(char *message);
-    static void warning(const std::string& message);
+    static void warning(const std::string &message);
 
-    static void error(char *message);
-    static void error(const std::string& message);
+    static void error(const std::string &message);
 
 private:
-    static void printMessage(char* level, char *message, Color color);
+    static void printMessage(char *level, char *message, Color color);
 
 };
 

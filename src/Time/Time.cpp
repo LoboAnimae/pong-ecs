@@ -4,6 +4,7 @@
 
 
 #include "Time.h"
+#include "../Console/ConsoleMessage.h"
 #include <SDL2/SDL.h>
 
 namespace Game::Time {
@@ -19,11 +20,13 @@ namespace Game::Time {
         currentTicks = frameEndTimestamp - frameStartTimestamp;
         if (currentTicks < frameTicks) {
             SDL_Delay(frameTicks - currentTicks);
+            ConsoleMessage::info("Delaying...");
         }
         tick++;
+        ConsoleMessage::info(std::to_string(tick));
     }
 
-    Time::Time(int p_FPS, Game::Time::Options options) : ErrorSupport(options.error, (char *)"Time Manager") {
+    Time::Time(int p_FPS, Game::Time::Options options) : ErrorSupport(options.error, (char *) "Time Manager") {
         FPS = p_FPS;
         frameStartTimestamp = 0;
         frameEndTimestamp = 0;
@@ -35,10 +38,6 @@ namespace Game::Time {
 
         // Frames will be measured in ticks. A frame will be n ticks.
 
-    }
-
-    bool Time::allowedNextFrame() {
-        return true;
     }
 
     Time *New(int FPS, Game::Time::Options options) {

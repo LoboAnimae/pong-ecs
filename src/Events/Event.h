@@ -18,7 +18,7 @@ namespace Game::EventManager {
 
     class Event : public ErrorSupport {
     public:
-        void handle_events();
+        void handleEvents(SDL_Rect ball, SDL_Rect paddle);
 
         std::vector<Game::ControllableEntity> *controllableEntities; // Slow, but scalable
         explicit Event(Options options);

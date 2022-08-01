@@ -24,8 +24,6 @@ namespace Game::Time {
 
         void frameEnd();
 
-        bool allowedNextFrame();
-
     private:
         int FPS;
         Uint64 frameStartTimestamp;

@@ -14,7 +14,6 @@
 #include <vector>
 
 namespace Game {
-
     struct ScreenParams {
         int screen_width;
         int screen_height;
@@ -32,32 +31,49 @@ namespace Game {
         Game::Time::Time *time;
     };
 
-    class Master {
-    public:
-        explicit Master(InitParameters params);
+    struct Components {
 
-        ~Master();
+        Game::Time::Time *timeController;
+        Game::EventManager::Event *eventController;
+        Game::Screen::Screen *screenController;
+
+        Game::Time::Time *getTimeController();
+
+        Game::EventManager::Event *getEventController();
+
+        Game::Screen::Screen *getScreenController();
+    };
+
+
+    class Manager {
+    public:
+        SDL_Rect ball;
+        SDL_Rect paddle;
+
+        explicit Manager(InitParameters params);
+
+        ~Manager();
 
         void init();
 
         void setup();
 
-        bool has_error();
 
-        void run_loop();
+        void runLoop();
 
 
     private:
-        bool isRunning;
-        Game::Time::Time *timeController;
-        Game::EventManager::Event *eventController;
-        Game::Screen::Screen *screenController;
-        StandardError *presentError;
+        Components *components;
+
+        void setComponents(Game::Screen::Screen *, Game::Time::Time *, Game::EventManager::Event *);
+
+        void setScreen(Game::Screen::Screen *);
+
+        void setTime(Game::Time::Time *);
+
+        void setEventManager(Game::EventManager::Event *);
 
 
-        void setScreen(Game::Screen::Screen*);
-        void setTime(Game::Time::Time*);
-        void setEventManager(Game::EventManager::Event*);
     };
 
 }

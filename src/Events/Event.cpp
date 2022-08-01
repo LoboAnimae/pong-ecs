@@ -3,10 +3,13 @@
 //
 
 #include "Event.h"
+#include "../Console/ConsoleMessage.h"
 #include <SDL.h>
 
 namespace Game::EventManager {
-    void Event::handle_events() {
+    void Event::handleEvents(SDL_Rect ball, SDL_Rect paddle) {
+        ConsoleMessage::info("Handling Events...");
+
         SDL_Event event;
 
         while (SDL_PollEvent(&event) != 0) {
@@ -15,7 +18,16 @@ namespace Game::EventManager {
             }
 
             if (event.type == SDL_KEYDOWN) {
-//                switch (event.key.keysym.sym)
+                switch (event.key.keysym.sym) {
+                    case SDLK_LEFT: {
+                        paddle.x -= 10;
+                    }
+                        break;
+                    case SDLK_RIGHT: {
+                        paddle.x += 10;
+                    }
+                        break;
+                }
             }
         }
     }

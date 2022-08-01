@@ -10,6 +10,8 @@
 
 namespace Game::Screen {
 
+    // Entities.
+    // TODO: Make these into individual entities
 
     struct Dimensions {
         int width;
@@ -18,7 +20,9 @@ namespace Game::Screen {
 
     struct Options : AllowError {
 
-        explicit Options(StandardError *error) : AllowError(error) {}
+        explicit Options(StandardError *error) : AllowError(error) {
+//            Game::Manager *manager;
+        }
     };
 
     /**
@@ -26,9 +30,9 @@ namespace Game::Screen {
      */
     class Screen : public ErrorSupport {
     public:
-        void update();
+        void update(SDL_Rect ball, SDL_Rect paddle);
 
-        void render();
+        void render(SDL_Rect ball, SDL_Rect paddle) const;
 
         void init();
 
@@ -37,6 +41,7 @@ namespace Game::Screen {
         Screen(const char *title, Game::Screen::Dimensions dims, Game::Screen::Options options);
 
         ~Screen();
+
         char *title;
         SDL_Window *window;
         SDL_Renderer *renderer;
@@ -45,7 +50,7 @@ namespace Game::Screen {
 
     Screen *New(const char *title, Game::Screen::Dimensions, Game::Screen::Options);
 
-    [[maybe_unused]] Screen *New(const char *title, int width, int height, Game::Screen::Options);
+    Screen *New(const char *title, int width, int height, Game::Screen::Options);
 
 } // Game
 

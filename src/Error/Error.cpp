@@ -3,7 +3,8 @@
 //
 
 #include "Error.h"
-
+#include <string>
+#include <utility>
 namespace Game {
     char *getError(ERROR_TYPE type) {
         char *errors[] = {(char *) "sent info", (char *) "found fatal error", (char *) "panicked"};
@@ -15,11 +16,11 @@ namespace Game {
         name = caller;
     }
 
-    void ErrorSupport::setNewError(char *error, ERROR_TYPE type) {
+    void ErrorSupport::setNewError(std::string error, ERROR_TYPE type) {
         if (masterError) {
             masterError->exists = true;
-            masterError->message = error;
-            masterError->caller = (char *) "";
+            masterError->message = std::move(error);
+            masterError->caller = "";
             masterError->errorType = type;
         }
     }

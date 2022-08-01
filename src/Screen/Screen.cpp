@@ -3,20 +3,24 @@
 //
 
 #include "Screen.h"
+#include "../Console/ConsoleMessage.h"
 #include <SDL2/SDL.h>
 
 namespace Game::Screen {
 
+    int sx = 1;
+    int sy = 1;
 
     void Screen::init() {
         if (!SDL_Init(SDL_INIT_EVERYTHING)) {
-            window = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, dims->width, dims->height, 0);
+            window = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, dims->width,
+                                      dims->height, 0);
             renderer = SDL_CreateRenderer(window, -1, 0);
             if (!(window && renderer)) {
-                setNewError((char *) "Could not initialize window or renderer", FATAL);
+                setNewError("Could not initialize window or renderer", FATAL);
             }
         } else {
-            setNewError((char *) "Could not initialize SDL", PANIC);
+            setNewError("Could not initialize SDL", PANIC);
         }
     }
 
@@ -32,6 +36,7 @@ namespace Game::Screen {
     Screen::~Screen() {
         SDL_DestroyWindow(window);
         SDL_DestroyRenderer(renderer);
+        SDL_Quit();
         delete dims;
     };
 
@@ -39,20 +44,54 @@ namespace Game::Screen {
             : Screen(p_title, Game::Screen::Dimensions{.width = p_width, .height = p_height}, options) {
     }
 
-    void Screen::update() {
+    void Screen::update(SDL_Rect ball, SDL_Rect paddle) {
+        ConsoleMessage::info("Updating...");
+        if (ball.x <= 0) {
+            sx *= -1;
+        }
+
+        if (ball.x + ball.w >= dims->width) {
+            sx *= -1;
+        }
+
+        if (ball.y <= 0) {
+            sy *= -1;
+        }
+
+        if (ball.y + ball.h >= dims->height) {
+            setNewError((char*)"Game Over :(", INFO);
+        }
+
+        if (ball.y + ball.h >= paddle.y &&
+        ball.x + ball.w >= paddle.x &&
+        ball.x <= paddle.x + paddle.w) {
+            sy += -(int) (sy * 0.1);
+            sx *= (int) (sx * 1.1);
+        }
+
+        ball.x += sx;
+        ball.y += sy;
 
     }
 
-    void Screen::render() {
+    void Screen::render(SDL_Rect ball, SDL_Rect paddle) const {
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 1);
+        SDL_RenderClear(renderer);
 
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 1);
+        SDL_RenderFillRect(renderer, &ball);
+        SDL_RenderFillRect(renderer, &paddle);
+
+        SDL_RenderPresent(renderer);
     }
+
 
 
     Screen *New(const char *title, Game::Screen::Dimensions dimensions, Game::Screen::Options options) {
         return new Screen(title, dimensions, options);
     }
 
-    [[maybe_unused]] Screen *New(const char *title, int width, int height, Game::Screen::Options options) {
+    Screen *New(const char *title, int width, int height, Game::Screen::Options options) {
         return Game::Screen::New(title, Game::Screen::Dimensions{.width = width, .height = height}, options);
     }
 }

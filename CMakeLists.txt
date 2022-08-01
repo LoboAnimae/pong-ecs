@@ -3,7 +3,7 @@ project(PongProject)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(PongProject src/main.cpp src/Game/GameController.cpp src/Game/GameController.h src/Controller/Controller.cpp src/Controller/Controller.h src/Loop/Loop.cpp src/Loop/Loop.h src/Time/Time.cpp src/Time/Time.h src/Events/Event.cpp src/Events/Event.h src/Screen/Screen.cpp src/Screen/Screen.h src/Error/Error.cpp src/Error/Error.h src/Entity/Entity.cpp src/Entity/Entity.h src/Entity/ControllableEntity.cpp src/Entity/ControllableEntity.h src/Entity/Collider.cpp src/Entity/Collider.h src/Console/ConsoleMessage.cpp src/Console/ConsoleMessage.h)
+add_executable(PongProject src/main.cpp src/Game/GameController.cpp src/Game/GameController.h src/Controller/Controller.cpp src/Controller/Controller.h src/Loop/Loop.cpp src/Loop/Loop.h src/Time/Time.cpp src/Time/Time.h src/Events/Event.cpp src/Events/Event.h src/Screen/Screen.cpp src/Screen/Screen.h src/Error/Error.cpp src/Error/Error.h src/Entity/Entity.cpp src/Entity/Entity.h src/Entity/ControllableEntity.cpp src/Entity/ControllableEntity.h src/Entity/Collider.cpp src/Entity/Collider.h src/Console/ConsoleMessage.cpp src/Console/ConsoleMessage.h src/Static.h src/Structs/HierarchyTree.h)
 
 
 find_package(PkgConfig REQUIRED)
