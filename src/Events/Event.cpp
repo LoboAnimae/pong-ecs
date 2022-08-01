@@ -7,12 +7,13 @@
 #include <SDL.h>
 
 namespace Game::EventManager {
-    void Event::handleEvents(SDL_Rect ball, SDL_Rect paddle) {
-        ConsoleMessage::info("Handling Events...");
+    void Event::handleEvents(SDL_Rect *ball, SDL_Rect* paddle) {
+//        ConsoleMessage::info("Handling Events...");
 
         SDL_Event event;
 
         while (SDL_PollEvent(&event) != 0) {
+            ConsoleMessage::INFO("Pressing");
             if (event.type == SDL_QUIT) {
                 setNewError((char *) "Program ended by user", FATAL);
             }
@@ -20,11 +21,13 @@ namespace Game::EventManager {
             if (event.type == SDL_KEYDOWN) {
                 switch (event.key.keysym.sym) {
                     case SDLK_LEFT: {
-                        paddle.x -= 10;
+                        ConsoleMessage::INFO("PaddleX = " + std::to_string(paddle->x));
+                        paddle->x -= 10;
                     }
                         break;
                     case SDLK_RIGHT: {
-                        paddle.x += 10;
+                        ConsoleMessage::INFO("PaddleX = " + std::to_string(paddle->x));
+                        paddle->x += 10;
                     }
                         break;
                 }

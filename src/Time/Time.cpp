@@ -20,10 +20,9 @@ namespace Game::Time {
         currentTicks = frameEndTimestamp - frameStartTimestamp;
         if (currentTicks < frameTicks) {
             SDL_Delay(frameTicks - currentTicks);
-            ConsoleMessage::info("Delaying...");
+            ConsoleMessage::INFO("Delaying...");
         }
         tick++;
-        ConsoleMessage::info(std::to_string(tick));
     }
 
     Time::Time(int p_FPS, Game::Time::Options options) : ErrorSupport(options.error, (char *) "Time Manager") {

@@ -10,15 +10,15 @@
 void Game::Manager::runLoop() {
     while (*Game::isRunning && !Game::hasError()) {
         components->timeController->frameStart();
-        components->eventController->handleEvents(ball, paddle);
-        components->screenController->update(ball, paddle);
-        components->screenController->render(ball, paddle);
+        components->eventController->handleEvents(&ball, &paddle);
+        components->screenController->update(&ball, &paddle);
+        components->screenController->render(&ball, &paddle);
         components->timeController->frameEnd();
     }
 
     if (Game::hasError()) {
         std::string errorMessage = std::string(Game::getError()->message);
-        ConsoleMessage::error(errorMessage);
+        ConsoleMessage::ERROR(errorMessage);
     }
 
 }
@@ -58,12 +58,12 @@ void Game::Manager::setTime(Game::Time::Time *time) {
 
         if (components->timeController->errorIsSet()) {
             std::string warningMessage = "A time manager with an existing error controller has overridden the previous error manager. Possible memory leak.";
-            ConsoleMessage::warning(warningMessage);
+            ConsoleMessage::WARN(warningMessage);
         }
         components->timeController->setErrorManager(Game::getError());
 
     } else {
-        ConsoleMessage::info((char *) "Using default parameters for \"Time\"");
+        ConsoleMessage::INFO((char *) "Using default parameters for \"Time\"");
 
         components->timeController = Game::Time::New(60, Game::Time::Options{Game::getError()});
     }
@@ -75,12 +75,12 @@ void Game::Manager::setEventManager(Game::EventManager::Event *eventManager) {
 
         if (components->eventController->errorIsSet()) {
             std::string warningMessage = "Event manager had an error manager already, but a new one has been set. Possible memory leak.";
-            ConsoleMessage::warning(warningMessage);
+            ConsoleMessage::WARN(warningMessage);
         }
         components->eventController->setErrorManager(Game::getError());
 
     } else {
-        ConsoleMessage::info((char *) "Using default parameters for \"EventManager\"");
+        ConsoleMessage::INFO((char *) "Using default parameters for \"EventManager\"");
         components->eventController = Game::EventManager::New(
                 Game::EventManager::Options{.parentError = Game::getError(), .controllableEntities = nullptr});
     }
@@ -94,12 +94,12 @@ void Game::Manager::setScreen(Game::Screen::Screen *screen) {
             std::string warningMessage = "New screen \"";
             warningMessage += screen->title;
             warningMessage += " \" had an error manager already existing, but a new one has been set.";
-            ConsoleMessage::warning(warningMessage);
+            ConsoleMessage::WARN(warningMessage);
         }
         components->screenController->setErrorManager(Game::getError());
 
     } else {
-        ConsoleMessage::info((char *) "Using default parameters for \"Screen\"");
+        ConsoleMessage::INFO((char *) "Using default parameters for \"Screen\"");
         components->screenController = Game::Screen::New("New Game",
                                                          800,
                                                          600,

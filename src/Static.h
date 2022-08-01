@@ -12,7 +12,7 @@ namespace Game {
     static StandardError *gameError;
     static bool hasError() {
         if (gameError) return gameError->exists;
-        ConsoleMessage::warning("Trying to access a static memory address for gameError somewhere, but it doesn't exist.");
+        ConsoleMessage::WARN("Trying to access a static memory address for gameError somewhere, but it doesn't exist.");
         return false;
     };
     static StandardError* getError() {

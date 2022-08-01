@@ -44,47 +44,46 @@ namespace Game::Screen {
             : Screen(p_title, Game::Screen::Dimensions{.width = p_width, .height = p_height}, options) {
     }
 
-    void Screen::update(SDL_Rect ball, SDL_Rect paddle) {
-        ConsoleMessage::info("Updating...");
-        if (ball.x <= 0) {
+    void Screen::update(SDL_Rect *ball, SDL_Rect *paddle) {
+        ConsoleMessage::INFO("Updating...");
+        if (ball->x <= 0) {
             sx *= -1;
         }
 
-        if (ball.x + ball.w >= dims->width) {
+        if (ball->x + ball->w >= dims->width) {
             sx *= -1;
         }
 
-        if (ball.y <= 0) {
+        if (ball->y <= 0) {
             sy *= -1;
         }
 
-        if (ball.y + ball.h >= dims->height) {
-            setNewError((char*)"Game Over :(", INFO);
+        if (ball->y + ball->h >= dims->height) {
+            setNewError((char *) "Game Over :(", INFO);
         }
 
-        if (ball.y + ball.h >= paddle.y &&
-        ball.x + ball.w >= paddle.x &&
-        ball.x <= paddle.x + paddle.w) {
+        if (ball->y + ball->h >= paddle->y &&
+            ball->x + ball->w >= paddle->x &&
+            ball->x <= paddle->x + paddle->w) {
             sy += -(int) (sy * 0.1);
             sx *= (int) (sx * 1.1);
         }
 
-        ball.x += sx;
-        ball.y += sy;
+        ball->x += sx;
+        ball->y += sy;
 
     }
 
-    void Screen::render(SDL_Rect ball, SDL_Rect paddle) const {
+    void Screen::render(SDL_Rect *ball, SDL_Rect *paddle) const {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 1);
         SDL_RenderClear(renderer);
 
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 1);
-        SDL_RenderFillRect(renderer, &ball);
-        SDL_RenderFillRect(renderer, &paddle);
+        SDL_RenderFillRect(renderer, ball);
+        SDL_RenderFillRect(renderer, paddle);
 
         SDL_RenderPresent(renderer);
     }
-
 
 
     Screen *New(const char *title, Game::Screen::Dimensions dimensions, Game::Screen::Options options) {
