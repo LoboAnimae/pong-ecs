@@ -84,6 +84,7 @@ namespace Game::Screen {
                 !screenCollider.containsY(ballCollider.corners.bottomLeft)) {
 
                 Game::Math::invert(sy);
+                sy *= 1.1f;
             }
 
             // ATTENTION. THIS FAILS IF BOTH POINTS ARE OUTSIDE THE SCREEN AT THE SAME TIME, AND THE GAME WILL THINK BOTH PLAYERS WON.
@@ -152,6 +153,8 @@ namespace Game::Screen {
                 paddle2Collider.contains(ballCollider.corners.bottomRight)) {
 
             Game::Math::invert(sx);
+            sx *= 1.1f;
+
         }
 
         ball.x += sx * dT;
