@@ -30,9 +30,9 @@ namespace Game::Screen {
      */
     class Screen : public ErrorSupport {
     public:
-        void update(SDL_Rect *ball, SDL_Rect *paddle1, SDL_Rect *paddle2, float dT);
+        void update(SDL_Rect &ball, SDL_Rect &paddle1, SDL_Rect &paddle2, float dT);
 
-        void render(SDL_Rect *ball, SDL_Rect *paddle) const;
+        void render(SDL_Rect &ball, SDL_Rect &paddle1, SDL_Rect &paddle2) const;
 
         void init();
 

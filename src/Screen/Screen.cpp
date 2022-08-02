@@ -5,11 +5,15 @@
 #include "Screen.h"
 #include "../Console/ConsoleMessage.h"
 #include <SDL2/SDL.h>
+#include "../Coords/Coordinates.h"
+#include "../Misc.h"
 
 namespace Game::Screen {
 
-    int sx = 100;
-    int sy = 100;
+    int sx = 50;
+    int sy = 50;
+//    int sx = -0;
+//    int sy = 0;
 
     void Screen::init() {
         if (!SDL_Init(SDL_INIT_EVERYTHING)) {
@@ -44,38 +48,57 @@ namespace Game::Screen {
             : Screen(p_title, Game::Screen::Dimensions{.width = p_width, .height = p_height}, options) {
     }
 
-    void Screen::update(SDL_Rect *ball, SDL_Rect *paddle1, SDL_Rect *paddle2, float dT) {
-//        ConsoleMessage::INFO("Updating...");
+    void Screen::update(SDL_Rect &ball, SDL_Rect &paddle1, SDL_Rect &paddle2, float dT) {
 
-/*
- *
- *  (0, 0)                    (SCREEN_WIDTH, 0)
- *  ____________________________________
- * |                                    |
- * |                                    |
- * |                                    |
- * |                                    |
- * |____________________________________|
- * (0, SCREEN_HEIGHT)      (SCREEN_WIDTH, SCREEN_HEIGHT)
- * */
+        /**
+        *
+        *  (0, 0)                    (SCREEN_WIDTH, 0)
+        *  ____________________________________
+        * |                                    |
+        * |                                    |
+        * |                                    |
+        * |                                    |
+        * |____________________________________|
+        * (0, SCREEN_HEIGHT)      (SCREEN_WIDTH, SCREEN_HEIGHT)
+        *
+        */
 
+        /**
+         * Colliders
+         */
+
+        auto ballCollider = rectangularDimensions(ball);
+        auto paddle1Collider = rectangularDimensions(paddle1);
+        auto paddle2Collider = rectangularDimensions(paddle2);
+        auto screenCollider = rectangularDimensions(0, 0, dims->width, dims->height);
 
         /**
          * Screen
          */
-        // Hits the left side or the right side
-        if (ball->x <= 0 || ball->x + ball->w >= dims->width) {
-            sx *= -1;
-        }
+        // A point of the ball is not contained in the screen
+        if (!screenCollider.contains(ballCollider.corners.topLeft) ||
+            !screenCollider.contains(ballCollider.corners.bottomRight)) {
 
-        // Hits the top of the screen (0, 0)
-        if (ball->y <= 0) {
-            sy *= -1;
-        }
+            // The ball is trying to get out of the screen via the Y axis
+            if (!screenCollider.containsY(ballCollider.corners.topLeft) ||
+                !screenCollider.containsY(ballCollider.corners.bottomLeft)) {
 
-        // Hits the bottom of the screen, past the paddle
-        if (ball->y + ball->h >= dims->height) {
-            setNewError("Game Over :(", INFO);
+                Game::Math::invert(sy);
+            }
+
+            // ATTENTION. THIS FAILS IF BOTH POINTS ARE OUTSIDE THE SCREEN AT THE SAME TIME, AND THE GAME WILL THINK BOTH PLAYERS WON.
+            // TO FIX IT: Make it so that it checks if x <= 0 or x >= SCREEN_WIDTH instead. Nevertheless, the current solution is more elegant.
+            // The ball is trying to get out of the screen via the X axis (win-lose condition)
+            // Right side wins
+            if (screenCollider.sides.left.isToTheRightOf(ballCollider.sides.right)) {
+                ConsoleMessage::INFO("Right Player Wins!");
+                setNewError("Game Ended. Right Player won.", ERROR_TYPE::FATAL);
+            }
+            // Left side wins
+            if (screenCollider.sides.right.isToTheLeftOf(ballCollider.sides.left)) {
+                ConsoleMessage::INFO("Left Player Wins!");
+                setNewError("Game Ended. Left Player won.", ERROR_TYPE::FATAL);
+            }
         }
 
         /**
@@ -120,96 +143,35 @@ namespace Game::Screen {
          */
 
 
-        /**
-         * |||  Paddle 1 |||
-         * The paddle is to the left
-         *
-         */
+        // The ball collided against a paddle
+        if (// Left Paddle
+                paddle1Collider.contains(ballCollider.corners.topLeft) ||
+                paddle1Collider.contains(ballCollider.corners.bottomLeft) ||
+                // Right Paddle
+                paddle2Collider.contains(ballCollider.corners.topRight) ||
+                paddle2Collider.contains(ballCollider.corners.bottomRight)) {
 
-
-        struct SquareCorners {
-            int topLeft;
-            int topRight;
-            int bottomLeft;
-            int bottomRight;
-
-            SquareCorners(SDL_Rect *rect) {
-                topLeft = rect->x + rect->y;
-                topRight = rect->x + rect->w + rect->y;
-                bottomLeft = rect->x + rect->y + rect->h;
-                bottomRight = rect->x + rect->w + rect->y + rect->h;
-            };
-        };
-
-        auto ballCorners = SquareCorners(ball);
-
-        if (
-            // The ball has a corner that's between the paddle's y borders
-            // Either the top left corner
-                ((
-                         ballCorners.topLeft >= paddle1->y &&
-                         ball->y <= paddle1->y + paddle1->h
-                 )
-                 ||
-                 // Or the bottom corner is between the borders
-                 (
-                         ball->y + ball->h >= paddle1->y &&
-                         ball->y + ball->h <= paddle1->y + paddle1->h
-                 ))
-                &&
-                // And the ball is in the paddle's area
-                (
-                        ball->x >= paddle1->x &&
-                        ball->x <= paddle1->x + paddle1->w
-                )
-                ) {}
-
-
-        if (
-            // The ball has a corner that's between the paddle's y borders
-            // Either the top right corner
-                ((
-                         ball->y >= paddle1->y &&
-                         ball->y <= paddle1->y + paddle1->h
-                 )
-                 ||
-                 // Or the bottom corner is between the borders
-                 (
-                         ball->y + ball->h >= paddle1->y &&
-                         ball->y + ball->h <= paddle1->y + paddle1->h
-                 ))
-                &&
-                // And the ball is in the paddle's area
-                (
-                        ball->x >= paddle1->x &&
-                        ball->x <= paddle1->x + paddle1->w
-                )
-                ) {}
-        if (
-            // If the ball is going past the left side of the screen
-            // If the ball hits the top of the paddle
-                ball->y + ball->h >= paddle->y &&
-                ball->x + ball->w >= paddle->x &&
-                ball->x <= paddle->x + paddle->w) {
-            sy += -(int) (sy * 1.1);
-            sx *= (int) (sx * 1.1);
+            Game::Math::invert(sx);
         }
 
+        ball.x += sx * dT;
+        ball.y += sy * dT;
 
         ConsoleMessage::DEBUG(
-                "X: " + std::to_string(ball->x) + " Y: " + std::to_string(ball->y) + " dT: " + std::to_string(dT));
-        ball->x += sx * dT;
-        ball->y += sy * dT;
+                "X: " + std::to_string(ball.x) +
+                " Y: " + std::to_string(ball.y) +
+                " dT: " + std::to_string(dT));
 
     }
 
-    void Screen::render(SDL_Rect *ball, SDL_Rect *paddle) const {
+    void Screen::render(SDL_Rect &ball, SDL_Rect &paddle1, SDL_Rect &paddle2) const {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 1);
         SDL_RenderClear(renderer);
 
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 1);
-        SDL_RenderFillRect(renderer, ball);
-        SDL_RenderFillRect(renderer, paddle);
+        SDL_RenderFillRect(renderer, &ball);
+        SDL_RenderFillRect(renderer, &paddle1);
+        SDL_RenderFillRect(renderer, &paddle2);
 
         SDL_RenderPresent(renderer);
     }

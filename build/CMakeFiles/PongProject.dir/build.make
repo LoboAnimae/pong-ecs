@@ -237,6 +237,34 @@ CMakeFiles/PongProject.dir/src/Console/ConsoleMessage.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PongProject.dir/src/Console/ConsoleMessage.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Console/ConsoleMessage.cpp -o CMakeFiles/PongProject.dir/src/Console/ConsoleMessage.cpp.s
 
+CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.o: CMakeFiles/PongProject.dir/flags.make
+CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.o: ../src/Coords/Coordinates.cpp
+CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.o: CMakeFiles/PongProject.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.o -MF CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.o.d -o CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.o -c /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Coords/Coordinates.cpp
+
+CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Coords/Coordinates.cpp > CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.i
+
+CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Coords/Coordinates.cpp -o CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.s
+
+CMakeFiles/PongProject.dir/src/Misc.cpp.o: CMakeFiles/PongProject.dir/flags.make
+CMakeFiles/PongProject.dir/src/Misc.cpp.o: ../src/Misc.cpp
+CMakeFiles/PongProject.dir/src/Misc.cpp.o: CMakeFiles/PongProject.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/PongProject.dir/src/Misc.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PongProject.dir/src/Misc.cpp.o -MF CMakeFiles/PongProject.dir/src/Misc.cpp.o.d -o CMakeFiles/PongProject.dir/src/Misc.cpp.o -c /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Misc.cpp
+
+CMakeFiles/PongProject.dir/src/Misc.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PongProject.dir/src/Misc.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Misc.cpp > CMakeFiles/PongProject.dir/src/Misc.cpp.i
+
+CMakeFiles/PongProject.dir/src/Misc.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PongProject.dir/src/Misc.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Misc.cpp -o CMakeFiles/PongProject.dir/src/Misc.cpp.s
+
 # Object files for target PongProject
 PongProject_OBJECTS = \
 "CMakeFiles/PongProject.dir/src/main.cpp.o" \
@@ -250,7 +278,9 @@ PongProject_OBJECTS = \
 "CMakeFiles/PongProject.dir/src/Entity/Entity.cpp.o" \
 "CMakeFiles/PongProject.dir/src/Entity/ControllableEntity.cpp.o" \
 "CMakeFiles/PongProject.dir/src/Entity/Collider.cpp.o" \
-"CMakeFiles/PongProject.dir/src/Console/ConsoleMessage.cpp.o"
+"CMakeFiles/PongProject.dir/src/Console/ConsoleMessage.cpp.o" \
+"CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.o" \
+"CMakeFiles/PongProject.dir/src/Misc.cpp.o"
 
 # External object files for target PongProject
 PongProject_EXTERNAL_OBJECTS =
@@ -267,9 +297,11 @@ PongProject: CMakeFiles/PongProject.dir/src/Entity/Entity.cpp.o
 PongProject: CMakeFiles/PongProject.dir/src/Entity/ControllableEntity.cpp.o
 PongProject: CMakeFiles/PongProject.dir/src/Entity/Collider.cpp.o
 PongProject: CMakeFiles/PongProject.dir/src/Console/ConsoleMessage.cpp.o
+PongProject: CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.o
+PongProject: CMakeFiles/PongProject.dir/src/Misc.cpp.o
 PongProject: CMakeFiles/PongProject.dir/build.make
 PongProject: CMakeFiles/PongProject.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable PongProject"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable PongProject"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PongProject.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

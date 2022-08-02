@@ -259,4 +259,6 @@ CMakeFiles/PongProject.dir/src/Events/Event.cpp.o: \
  /usr/include/c++/12.1.0/bits/stl_vector.h \
  /usr/include/c++/12.1.0/bits/stl_bvector.h \
  /usr/include/c++/12.1.0/bits/vector.tcc \
- /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/../Console/ConsoleMessage.h
+ /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/../Console/ConsoleMessage.h \
+ /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/../Coords/Coordinates.h \
+ /usr/include/SDL2/SDL.h

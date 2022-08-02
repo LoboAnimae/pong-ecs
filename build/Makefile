@@ -177,6 +177,30 @@ src/Controller/Controller.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Controller/Controller.cpp.s
 .PHONY : src/Controller/Controller.cpp.s
 
+src/Coords/Coordinates.o: src/Coords/Coordinates.cpp.o
+.PHONY : src/Coords/Coordinates.o
+
+# target to build an object file
+src/Coords/Coordinates.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.o
+.PHONY : src/Coords/Coordinates.cpp.o
+
+src/Coords/Coordinates.i: src/Coords/Coordinates.cpp.i
+.PHONY : src/Coords/Coordinates.i
+
+# target to preprocess a source file
+src/Coords/Coordinates.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.i
+.PHONY : src/Coords/Coordinates.cpp.i
+
+src/Coords/Coordinates.s: src/Coords/Coordinates.cpp.s
+.PHONY : src/Coords/Coordinates.s
+
+# target to generate assembly for a file
+src/Coords/Coordinates.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.s
+.PHONY : src/Coords/Coordinates.cpp.s
+
 src/Entity/Collider.o: src/Entity/Collider.cpp.o
 .PHONY : src/Entity/Collider.o
 
@@ -345,6 +369,30 @@ src/Loop/Loop.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Loop/Loop.cpp.s
 .PHONY : src/Loop/Loop.cpp.s
 
+src/Misc.o: src/Misc.cpp.o
+.PHONY : src/Misc.o
+
+# target to build an object file
+src/Misc.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Misc.cpp.o
+.PHONY : src/Misc.cpp.o
+
+src/Misc.i: src/Misc.cpp.i
+.PHONY : src/Misc.i
+
+# target to preprocess a source file
+src/Misc.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Misc.cpp.i
+.PHONY : src/Misc.cpp.i
+
+src/Misc.s: src/Misc.cpp.s
+.PHONY : src/Misc.s
+
+# target to generate assembly for a file
+src/Misc.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Misc.cpp.s
+.PHONY : src/Misc.cpp.s
+
 src/Screen/Screen.o: src/Screen/Screen.cpp.o
 .PHONY : src/Screen/Screen.o
 
@@ -432,6 +480,9 @@ help:
 	@echo "... src/Controller/Controller.o"
 	@echo "... src/Controller/Controller.i"
 	@echo "... src/Controller/Controller.s"
+	@echo "... src/Coords/Coordinates.o"
+	@echo "... src/Coords/Coordinates.i"
+	@echo "... src/Coords/Coordinates.s"
 	@echo "... src/Entity/Collider.o"
 	@echo "... src/Entity/Collider.i"
 	@echo "... src/Entity/Collider.s"
@@ -453,6 +504,9 @@ help:
 	@echo "... src/Loop/Loop.o"
 	@echo "... src/Loop/Loop.i"
 	@echo "... src/Loop/Loop.s"
+	@echo "... src/Misc.o"
+	@echo "... src/Misc.i"
+	@echo "... src/Misc.s"
 	@echo "... src/Screen/Screen.o"
 	@echo "... src/Screen/Screen.i"
 	@echo "... src/Screen/Screen.s"

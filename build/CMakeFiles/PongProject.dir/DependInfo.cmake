@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Console/ConsoleMessage.cpp" "CMakeFiles/PongProject.dir/src/Console/ConsoleMessage.cpp.o" "gcc" "CMakeFiles/PongProject.dir/src/Console/ConsoleMessage.cpp.o.d"
   "/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Controller/Controller.cpp" "CMakeFiles/PongProject.dir/src/Controller/Controller.cpp.o" "gcc" "CMakeFiles/PongProject.dir/src/Controller/Controller.cpp.o.d"
+  "/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Coords/Coordinates.cpp" "CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.o" "gcc" "CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.o.d"
   "/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Entity/Collider.cpp" "CMakeFiles/PongProject.dir/src/Entity/Collider.cpp.o" "gcc" "CMakeFiles/PongProject.dir/src/Entity/Collider.cpp.o.d"
   "/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Entity/ControllableEntity.cpp" "CMakeFiles/PongProject.dir/src/Entity/ControllableEntity.cpp.o" "gcc" "CMakeFiles/PongProject.dir/src/Entity/ControllableEntity.cpp.o.d"
   "/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Entity/Entity.cpp" "CMakeFiles/PongProject.dir/src/Entity/Entity.cpp.o" "gcc" "CMakeFiles/PongProject.dir/src/Entity/Entity.cpp.o.d"
@@ -17,6 +18,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/Event.cpp" "CMakeFiles/PongProject.dir/src/Events/Event.cpp.o" "gcc" "CMakeFiles/PongProject.dir/src/Events/Event.cpp.o.d"
   "/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Game/GameController.cpp" "CMakeFiles/PongProject.dir/src/Game/GameController.cpp.o" "gcc" "CMakeFiles/PongProject.dir/src/Game/GameController.cpp.o.d"
   "/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Loop/Loop.cpp" "CMakeFiles/PongProject.dir/src/Loop/Loop.cpp.o" "gcc" "CMakeFiles/PongProject.dir/src/Loop/Loop.cpp.o.d"
+  "/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Misc.cpp" "CMakeFiles/PongProject.dir/src/Misc.cpp.o" "gcc" "CMakeFiles/PongProject.dir/src/Misc.cpp.o.d"
   "/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Screen/Screen.cpp" "CMakeFiles/PongProject.dir/src/Screen/Screen.cpp.o" "gcc" "CMakeFiles/PongProject.dir/src/Screen/Screen.cpp.o.d"
   "/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Time/Time.cpp" "CMakeFiles/PongProject.dir/src/Time/Time.cpp.o" "gcc" "CMakeFiles/PongProject.dir/src/Time/Time.cpp.o.d"
   "/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/main.cpp" "CMakeFiles/PongProject.dir/src/main.cpp.o" "gcc" "CMakeFiles/PongProject.dir/src/main.cpp.o.d"

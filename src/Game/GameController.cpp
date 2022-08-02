@@ -10,9 +10,10 @@
 void Game::Manager::runLoop() {
     while (*Game::isRunning && !Game::hasError()) {
         components->timeController->frameStart();
-        components->eventController->handleEvents(&ball, &paddle);
-        components->screenController->update(&ball, &paddle, components->timeController->deltaTime);
-        components->screenController->render(&ball, &paddle);
+        components->eventController->handleEvents(ball, paddle1, paddle2, components->screenController->dims->height,
+                                                  components->screenController->dims->width);
+        components->screenController->update(ball, paddle1, paddle2, components->timeController->deltaTime);
+        components->screenController->render(ball, paddle1, paddle2);
         components->timeController->frameEnd();
     }
 
@@ -23,7 +24,7 @@ void Game::Manager::runLoop() {
 
 }
 
-Game::Manager::Manager(Game::InitParameters params) : ball(), paddle() {
+Game::Manager::Manager(Game::InitParameters params) : ball(), paddle1(), paddle2() {
     Game::isRunning = new bool(true);
     Game::gameError = new StandardError();
     components = new Components();
@@ -36,15 +37,32 @@ void Game::Manager::init() {
 
 void Game::Manager::setup() {
     auto dims = components->screenController->dims;
-    ball.x = 20;
-    ball.y = 20;
+
+    paddle1.h = 100;
+    paddle1.w = 20;
+//    paddle1.x = (dims->width / 2) - (paddle1.w / 2); // This paints exactly in the middle
+    paddle1.x = 0;
+    paddle1.y = (dims->height / 2) - (paddle1.h / 2);
+
+    paddle2.h = 100;
+    paddle2.w = 20;
+    paddle2.x = dims->width - paddle2.w;
+    paddle2.y = (dims->height / 2) - (paddle2.h / 2);
+
     ball.w = 15;
     ball.h = 15;
+    ball.x = (dims->width / 2) - (ball.w / 2);
+    ball.y = (dims->height / 2) - (ball.h / 2);
 
-    paddle.x = (dims->width / 2) - 50;
-    paddle.y = dims->height - 20;
-    paddle.w = 100;
-    paddle.h = 20;
+//    int decorationWorkingArea = dims->height - 20;
+//    SDL_Rect firstDecor;
+//    firstDecor.w = 3;
+//    firstDecor.x = (dims->width / 2) - (firstDecor.w / 2);
+//    decorations[0] = firstDecor;
+//    for (int i = 0)
+//
+//        decorations[0].x =
+
 
 }
 

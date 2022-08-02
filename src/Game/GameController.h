@@ -48,7 +48,10 @@ namespace Game {
     class Manager {
     public:
         SDL_Rect ball;
-        SDL_Rect paddle;
+        SDL_Rect paddle1;
+        SDL_Rect paddle2;
+        std::vector<SDL_Rect> decorations;
+        int numOfDecorations = 5;
 
         explicit Manager(InitParameters params);
 
