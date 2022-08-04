@@ -7,22 +7,27 @@
 
 #include <SDL.h>
 #include "../Error/Error.h"
+#include "../Structs/Geometry.h"
+#include "../Structs/Borrowed.h"
+#include <string>
+
+using namespace Paradigm;
+using namespace std;
+#define SCREEN_WIDTH 800
+#define SCREEN_HEIGHT 600
 
 namespace Game::Screen {
 
     // Entities.
     // TODO: Make these into individual entities
 
-    struct Dimensions {
-        int width;
-        int height;
-    };
 
-    struct Options : AllowError {
 
-        explicit Options(StandardError *error) : AllowError(error) {
-//            Game::Manager *manager;
-        }
+    struct ScreenOptions : AllowError {
+
+        explicit ScreenOptions(StandardError *error);
+        ScreenOptions();
+        ~ScreenOptions() = default;
     };
 
     /**
@@ -36,21 +41,27 @@ namespace Game::Screen {
 
         void init();
 
-        Screen(const char *title, int width, int height, Game::Screen::Options options);
+        Screen(string &title, int width, int height, Borrowing<ScreenOptions *> *options);
 
-        Screen(const char *title, Game::Screen::Dimensions dims, Game::Screen::Options options);
+        Screen(string &title, Borrowing<Geometry::Dimensions *> *dims, Borrowing<ScreenOptions *> *p_options);
 
         ~Screen();
 
-        char *title;
+        string title;
         SDL_Window *window;
         SDL_Renderer *renderer;
-        Game::Screen::Dimensions *dims;
+        Geometry::Dimensions *dims;
     };
 
-    Screen *New(const char *title, Game::Screen::Dimensions, Game::Screen::Options);
+    Screen *New(std::string title = "My Game",
+                Borrowing<Geometry::Dimensions *> * = borrowedVar<Geometry::Dimensions *>(
+                        Geometry::Dimensions::New(SCREEN_WIDTH, SCREEN_HEIGHT)),
+                Borrowing<ScreenOptions *> * = borrowedVar<ScreenOptions *>(nullptr));
 
-    Screen *New(const char *title, int width, int height, Game::Screen::Options);
+    Screen *New(std::string title = "My Game",
+                int width = SCREEN_WIDTH,
+                int height = SCREEN_HEIGHT,
+                Borrowing<ScreenOptions *> * = borrowedVar<ScreenOptions *>(nullptr));
 
 } // Game
 

@@ -1159,9 +1159,9 @@ CMakeFiles/PongProject.dir/src/Error/Error.cpp.o: ../src/Error/Error.cpp \
   /usr/include/c++/12.1.0/utility \
   /usr/include/c++/12.1.0/bits/stl_relops.h
 
-CMakeFiles/PongProject.dir/src/Events/Event.cpp.o: ../src/Events/Event.cpp \
+CMakeFiles/PongProject.dir/src/Events/EventManager.cpp.o: ../src/Events/EventManager.cpp \
   /usr/include/stdc-predef.h \
-  ../src/Events/Event.h \
+  ../src/Events/EventManager.h \
   ../src/Error/Error.h \
   /usr/include/c++/12.1.0/string \
   /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/c++config.h \
@@ -1830,7 +1830,7 @@ CMakeFiles/PongProject.dir/src/Game/GameController.cpp.o: ../src/Game/GameContro
   /usr/include/bits/types/error_t.h \
   /usr/include/c++/12.1.0/bits/charconv.h \
   /usr/include/c++/12.1.0/bits/basic_string.tcc \
-  ../src/Events/Event.h \
+  ../src/Events/EventManager.h \
   ../src/Error/Error.h \
   ../src/Entity/ControllableEntity.h \
   ../src/Entity/Entity.h \
@@ -2882,7 +2882,7 @@ CMakeFiles/PongProject.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/SDL2/SDL_locale.h \
   /usr/include/SDL2/SDL_misc.h \
   ../src/Error/Error.h \
-  ../src/Events/Event.h \
+  ../src/Events/EventManager.h \
   ../src/Error/Error.h \
   ../src/Entity/ControllableEntity.h \
   ../src/Entity/Entity.h \
@@ -2916,7 +2916,7 @@ CMakeFiles/PongProject.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/12.1.0/bits/stl_vector.h:
 
-../src/Events/Event.cpp:
+../src/Events/EventManager.cpp:
 
 ../src/Error/Error.h:
 
@@ -2996,7 +2996,7 @@ CMakeFiles/PongProject.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/include/avx5124fmapsintrin.h:
 
-../src/Events/Event.h:
+../src/Events/EventManager.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/include/avx512ifmavlintrin.h:
 

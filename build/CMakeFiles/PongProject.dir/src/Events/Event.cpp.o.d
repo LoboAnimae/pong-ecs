@@ -1,7 +1,7 @@
-CMakeFiles/PongProject.dir/src/Events/Event.cpp.o: \
- /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/Event.cpp \
+CMakeFiles/PongProject.dir/src/Events/EventManager.cpp.o: \
+ /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/EventManager.cpp \
  /usr/include/stdc-predef.h \
- /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/Event.h \
+ /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/EventManager.h \
  /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/../Error/Error.h \
  /usr/include/c++/12.1.0/string \
  /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/c++config.h \

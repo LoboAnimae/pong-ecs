@@ -139,19 +139,19 @@ CMakeFiles/PongProject.dir/src/Time/Time.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PongProject.dir/src/Time/Time.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Time/Time.cpp -o CMakeFiles/PongProject.dir/src/Time/Time.cpp.s
 
-CMakeFiles/PongProject.dir/src/Events/Event.cpp.o: CMakeFiles/PongProject.dir/flags.make
-CMakeFiles/PongProject.dir/src/Events/Event.cpp.o: ../src/Events/Event.cpp
-CMakeFiles/PongProject.dir/src/Events/Event.cpp.o: CMakeFiles/PongProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/PongProject.dir/src/Events/Event.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PongProject.dir/src/Events/Event.cpp.o -MF CMakeFiles/PongProject.dir/src/Events/Event.cpp.o.d -o CMakeFiles/PongProject.dir/src/Events/Event.cpp.o -c /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/Event.cpp
+CMakeFiles/PongProject.dir/src/Events/EventManager.cpp.o: CMakeFiles/PongProject.dir/flags.make
+CMakeFiles/PongProject.dir/src/Events/EventManager.cpp.o: ../src/Events/EventManager.cpp
+CMakeFiles/PongProject.dir/src/Events/EventManager.cpp.o: CMakeFiles/PongProject.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/PongProject.dir/src/Events/EventManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PongProject.dir/src/Events/EventManager.cpp.o -MF CMakeFiles/PongProject.dir/src/Events/EventManager.cpp.o.d -o CMakeFiles/PongProject.dir/src/Events/EventManager.cpp.o -c /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/EventManager.cpp
 
-CMakeFiles/PongProject.dir/src/Events/Event.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PongProject.dir/src/Events/Event.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/Event.cpp > CMakeFiles/PongProject.dir/src/Events/Event.cpp.i
+CMakeFiles/PongProject.dir/src/Events/EventManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PongProject.dir/src/Events/EventManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/EventManager.cpp > CMakeFiles/PongProject.dir/src/Events/EventManager.cpp.i
 
-CMakeFiles/PongProject.dir/src/Events/Event.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PongProject.dir/src/Events/Event.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/Event.cpp -o CMakeFiles/PongProject.dir/src/Events/Event.cpp.s
+CMakeFiles/PongProject.dir/src/Events/EventManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PongProject.dir/src/Events/EventManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/EventManager.cpp -o CMakeFiles/PongProject.dir/src/Events/EventManager.cpp.s
 
 CMakeFiles/PongProject.dir/src/Screen/Screen.cpp.o: CMakeFiles/PongProject.dir/flags.make
 CMakeFiles/PongProject.dir/src/Screen/Screen.cpp.o: ../src/Screen/Screen.cpp
@@ -272,7 +272,7 @@ PongProject_OBJECTS = \
 "CMakeFiles/PongProject.dir/src/Controller/Controller.cpp.o" \
 "CMakeFiles/PongProject.dir/src/Loop/Loop.cpp.o" \
 "CMakeFiles/PongProject.dir/src/Time/Time.cpp.o" \
-"CMakeFiles/PongProject.dir/src/Events/Event.cpp.o" \
+"CMakeFiles/PongProject.dir/src/Events/EventManager.cpp.o" \
 "CMakeFiles/PongProject.dir/src/Screen/Screen.cpp.o" \
 "CMakeFiles/PongProject.dir/src/Error/Error.cpp.o" \
 "CMakeFiles/PongProject.dir/src/Entity/Entity.cpp.o" \
@@ -290,7 +290,7 @@ PongProject: CMakeFiles/PongProject.dir/src/Game/GameController.cpp.o
 PongProject: CMakeFiles/PongProject.dir/src/Controller/Controller.cpp.o
 PongProject: CMakeFiles/PongProject.dir/src/Loop/Loop.cpp.o
 PongProject: CMakeFiles/PongProject.dir/src/Time/Time.cpp.o
-PongProject: CMakeFiles/PongProject.dir/src/Events/Event.cpp.o
+PongProject: CMakeFiles/PongProject.dir/src/Events/EventManager.cpp.o
 PongProject: CMakeFiles/PongProject.dir/src/Screen/Screen.cpp.o
 PongProject: CMakeFiles/PongProject.dir/src/Error/Error.cpp.o
 PongProject: CMakeFiles/PongProject.dir/src/Entity/Entity.cpp.o

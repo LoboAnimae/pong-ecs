@@ -11,9 +11,9 @@ namespace Game {
         return errors[type];
     }
 
-    ErrorSupport::ErrorSupport(StandardError* error, char * caller) {
+    ErrorSupport::ErrorSupport(StandardError* error, std::string caller) {
         masterError = error;
-        name = caller;
+        name = std::move(caller); // Takes ownership
     }
 
     void ErrorSupport::setNewError(std::string error, ERROR_TYPE type) {

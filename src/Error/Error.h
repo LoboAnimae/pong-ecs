@@ -26,9 +26,9 @@ namespace Game {
 
     class ErrorSupport {
     public:
-        ErrorSupport(StandardError *error, char *caller);
+        ErrorSupport(StandardError *error, std::string caller);
 
-        char *name;
+        std::string name;
 
         bool errorIsSet();
 
@@ -42,7 +42,6 @@ namespace Game {
 
     struct AllowError {
         StandardError *error;
-
         explicit AllowError(StandardError *error) : error(error) {}
     };
 

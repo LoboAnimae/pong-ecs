@@ -1166,10 +1166,10 @@ CMakeFiles/PongProject.dir/src/Error/Error.cpp.o
  /usr/include/c++/12.1.0/utility
  /usr/include/c++/12.1.0/bits/stl_relops.h
 
-CMakeFiles/PongProject.dir/src/Events/Event.cpp.o
- /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/Event.cpp
+CMakeFiles/PongProject.dir/src/Events/EventManager.cpp.o
+ /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/EventManager.cpp
  /usr/include/stdc-predef.h
- /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/Event.h
+ /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/EventManager.h
  /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Error/Error.h
  /usr/include/c++/12.1.0/string
  /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/c++config.h
@@ -1839,7 +1839,7 @@ CMakeFiles/PongProject.dir/src/Game/GameController.cpp.o
  /usr/include/bits/types/error_t.h
  /usr/include/c++/12.1.0/bits/charconv.h
  /usr/include/c++/12.1.0/bits/basic_string.tcc
- /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/Event.h
+ /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/EventManager.h
  /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Error/Error.h
  /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Entity/ControllableEntity.h
  /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Entity/Entity.h
@@ -2896,7 +2896,7 @@ CMakeFiles/PongProject.dir/src/main.cpp.o
  /usr/include/SDL2/SDL_locale.h
  /usr/include/SDL2/SDL_misc.h
  /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Error/Error.h
- /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/Event.h
+ /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Events/EventManager.h
  /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Error/Error.h
  /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Entity/ControllableEntity.h
  /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/Entity/Entity.h

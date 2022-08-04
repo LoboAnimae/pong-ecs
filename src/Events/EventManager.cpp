@@ -2,7 +2,7 @@
 // Created by yagdrassyl on 7/21/22.
 //
 
-#include "Event.h"
+#include "EventManager.h"
 #include "../Console/ConsoleMessage.h"
 #include "../Coords/Coordinates.h"
 #include <SDL.h>
@@ -11,7 +11,8 @@ namespace Game::EventManager {
 
     static int paddleSpeed = 10;
 
-    void Event::handleEvents(SDL_Rect &ball, SDL_Rect &paddle1, SDL_Rect &paddle2, int screenHeight, int screenWidth) {
+    void EventManager::handleEvents(SDL_Rect &ball, SDL_Rect &paddle1, SDL_Rect &paddle2, int screenHeight,
+                                    int screenWidth) {
 //        ConsoleMessage::info("Handling Events...");
 
         SDL_Event event;
@@ -62,18 +63,28 @@ namespace Game::EventManager {
         }
     }
 
-    Event::Event(Game::EventManager::Options options) : ErrorSupport(options.parentError, (char *) "EventHandler") {
-        controllableEntities = options.controllableEntities;
+    EventManager::EventManager(Game::EventManager::EventManagerOptions *options) : ErrorSupport(options->parentError,
+                                                                                                "EventHandler") {
+        delete options;
     }
 
-    Event *New(Game::EventManager::Options options) {
-        return new Event(options);
+    EventManager *New(Game::EventManager::EventManagerOptions *options) {
+        return new EventManager(options);
     }
 
-    Event *New(StandardError *errorManager, std::vector<Game::ControllableEntity> *controllableEntities) {
-        auto options = Game::EventManager::Options{.parentError = errorManager, .controllableEntities = controllableEntities};
+    EventManager *New(StandardError *errorManager) {
+        auto options = new Game::EventManager::EventManagerOptions(errorManager);
         return Game::EventManager::New(options);
     }
 
 
+    EventManagerOptions::EventManagerOptions() {
+        parentError = nullptr;
+    }
+
+    EventManagerOptions::EventManagerOptions(StandardError *opt_parentError) {
+        parentError = opt_parentError;
+    }
+
+    EventManagerOptions::~EventManagerOptions() = default;
 } // Game

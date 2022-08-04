@@ -7,10 +7,9 @@
 
 #include "../Controller/Controller.h"
 #include "../Time/Time.h"
-#include "../Events/Event.h"
+#include "../Events/EventManager.h"
 #include "../Screen/Screen.h"
 #include "../Error/Error.h"
-#include "../Entity/ControllableEntity.h"
 #include <vector>
 
 namespace Game {
@@ -27,19 +26,19 @@ namespace Game {
     struct InitParameters {
         int FPS;
         Game::Screen::Screen *screen;
-        Game::EventManager::Event *event;
+        Game::EventManager::EventManager *event;
         Game::Time::Time *time;
     };
 
     struct Components {
 
         Game::Time::Time *timeController;
-        Game::EventManager::Event *eventController;
+        Game::EventManager::EventManager *eventController;
         Game::Screen::Screen *screenController;
 
         Game::Time::Time *getTimeController();
 
-        Game::EventManager::Event *getEventController();
+        Game::EventManager::EventManager *getEventController();
 
         Game::Screen::Screen *getScreenController();
     };
@@ -68,13 +67,13 @@ namespace Game {
     private:
         Components *components;
 
-        void setComponents(Game::Screen::Screen *, Game::Time::Time *, Game::EventManager::Event *);
+        void setComponents(Game::Screen::Screen *, Game::Time::Time *, Game::EventManager::EventManager *);
 
         void setScreen(Game::Screen::Screen *);
 
         void setTime(Game::Time::Time *);
 
-        void setEventManager(Game::EventManager::Event *);
+        void setEventManager(Game::EventManager::EventManager *);
 
 
     };

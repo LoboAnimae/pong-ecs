@@ -87,20 +87,21 @@ void Game::Manager::setTime(Game::Time::Time *time) {
     }
 }
 
-void Game::Manager::setEventManager(Game::EventManager::Event *eventManager) {
+void Game::Manager::setEventManager(Game::EventManager::EventManager *eventManager) {
     if (eventManager) {
         components->eventController = eventManager;
 
         if (components->eventController->errorIsSet()) {
-            std::string warningMessage = "Event manager had an error manager already, but a new one has been set. Possible memory leak.";
+            std::string warningMessage = "EventManager manager had an error manager already, but a new one has been set. Possible memory leak.";
             ConsoleMessage::WARN(warningMessage);
         }
         components->eventController->setErrorManager(Game::getError());
 
     } else {
-        ConsoleMessage::INFO((char *) "Using default parameters for \"EventManager\"");
+        ConsoleMessage::INFO("Using default parameters for \"EventManager\"");
         components->eventController = Game::EventManager::New(
-                Game::EventManager::Options{.parentError = Game::getError(), .controllableEntities = nullptr});
+                new Game::EventManager::EventManagerOptions(Game::getError()));
+
     }
 }
 
@@ -121,13 +122,13 @@ void Game::Manager::setScreen(Game::Screen::Screen *screen) {
         components->screenController = Game::Screen::New("New Game",
                                                          800,
                                                          600,
-                                                         Game::Screen::Options{Game::getError()}
+                                                         Game::Screen::ScreenOptions{Game::getError()}
         );
     }
 }
 
 void
-Game::Manager::setComponents(Game::Screen::Screen *screen, Game::Time::Time *time, Game::EventManager::Event *event) {
+Game::Manager::setComponents(Game::Screen::Screen *screen, Game::Time::Time *time, Game::EventManager::EventManager *event) {
     setScreen(screen);
     setTime(time);
     setEventManager(event);
@@ -138,7 +139,7 @@ Game::Time::Time *Game::Components::getTimeController() {
     return timeController;
 }
 
-Game::EventManager::Event *Game::Components::getEventController() {
+Game::EventManager::EventManager *Game::Components::getEventController() {
     return eventController;
 }
 

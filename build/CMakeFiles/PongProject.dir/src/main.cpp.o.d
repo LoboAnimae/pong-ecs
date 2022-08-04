@@ -275,7 +275,7 @@ CMakeFiles/PongProject.dir/src/main.cpp.o: \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
  /usr/include/SDL2/SDL_locale.h /usr/include/SDL2/SDL_misc.h \
  /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/./Game/../Time/../Error/Error.h \
- /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/./Game/../Events/Event.h \
+ /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/./Game/../Events/EventManager.h \
  /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/./Game/../Events/../Error/Error.h \
  /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/./Game/../Events/../Entity/ControllableEntity.h \
  /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/src/./Game/../Events/../Entity/./Entity.h \
