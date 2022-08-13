@@ -11,6 +11,7 @@ namespace Game::Geometry {
         [[nodiscard]] int getWidth() const;
         [[nodiscard]] int getHeight() const;
         static Dimensions *New(int width, int height);
+        static Dimensions New_Static(int width, int height);
 
     private:
         int width;

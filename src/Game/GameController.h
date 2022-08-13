@@ -5,11 +5,9 @@
 #ifndef PONGPROJECT_GAMECONTROLLER_H
 #define PONGPROJECT_GAMECONTROLLER_H
 
-#include "../Controller/Controller.h"
 #include "../Time/Time.h"
 #include "../Events/EventManager.h"
 #include "../Screen/Screen.h"
-#include "../Error/Error.h"
 #include <vector>
 
 namespace Game {

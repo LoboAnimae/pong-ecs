@@ -1,13 +1,66 @@
 cmake_minimum_required(VERSION 3.22)
-project(PongProject)
+project(PongProject VERSION 0.1)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(PongProject src/main.cpp src/Game/GameController.cpp src/Game/GameController.h src/Controller/Controller.cpp src/Controller/Controller.h src/Loop/Loop.cpp src/Loop/Loop.h src/Time/Time.cpp src/Time/Time.h src/Events/EventManager.cpp src/Events/EventManager.h src/Screen/Screen.cpp src/Screen/Screen.h src/Error/Error.cpp src/Error/Error.h src/Entity/Entity.cpp src/Entity/Entity.h src/Entity/Collider.cpp src/Entity/Collider.h src/Console/ConsoleMessage.cpp src/Console/ConsoleMessage.h src/Static.h src/Structs/HierarchyTree.h src/Coords/Coordinates.cpp src/Coords/Coordinates.h src/Misc.cpp src/Misc.h src/Screen/Layer.cpp src/Screen/Layer.h src/Structs/Geometry.cpp src/Structs/Geometry.h src/Structs/Borrowed.cpp src/Structs/Borrowed.h)
+add_executable(PongProject src/main.cpp src/Systems/SystemsManager.cpp src/Systems/SystemsManager.h)
+
+add_subdirectory(src/Console)
+add_subdirectory(src/Coords)
+add_subdirectory(src/Entity)
+add_subdirectory(src/Events)
+add_subdirectory(src/Game)
+add_subdirectory(src/Misc)
+add_subdirectory(src/Screen)
+add_subdirectory(src/Static)
+add_subdirectory(src/Structs)
+add_subdirectory(src/Time)
+add_subdirectory(src/Error)
+add_subdirectory(src/Systems)
 
 
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(SDL2 REQUIRED sdl2)
-target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES})
-target_include_directories(${PROJECT_NAME} PUBLIC ${SDL2_INCLUDE_DIRS})
-target_compile_options(${PROJECT_NAME} PUBLIC ${SDL2_CFLAGS_OTHER})
+target_include_directories(${PROJECT_NAME}
+        PUBLIC src/Console
+        PUBLIC src/Coords
+        PUBLIC src/Entity
+        PUBLIC src/Events
+        PUBLIC src/Game
+        PUBLIC src/Misc
+        PUBLIC src/Screen
+        PUBLIC src/Static
+        PUBLIC src/Structs
+        PUBLIC src/Time
+        PUBLIC src/Error
+        PUBLIC src/Systems
+        )
+
+target_link_directories(${PROJECT_NAME}
+        PRIVATE src/Console
+        PRIVATE src/Coords
+        PRIVATE src/Entity
+        PRIVATE src/Events
+        PRIVATE src/Game
+        PRIVATE src/Misc
+        PRIVATE src/Screen
+        PRIVATE src/Static
+        PRIVATE src/Structs
+        PRIVATE src/Time
+        PRIVATE src/Error
+        PRIVATE src/Systems
+        )
+
+target_link_libraries(${PROJECT_NAME}
+        SDL2
+        Console
+        Coords
+        Entity
+        Events
+        Error
+        Game
+        Misc
+        Screen
+        Static
+        Structs
+        Time
+        Systems
+        )

@@ -5,7 +5,7 @@
 #ifndef PONGPROJECT_ENTITY_H
 #define PONGPROJECT_ENTITY_H
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 namespace Game {
     struct EntityDimensions {

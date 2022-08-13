@@ -5,16 +5,15 @@
 #ifndef PONGPROJECT_TIME_H
 #define PONGPROJECT_TIME_H
 
-#include <SDL.h>
-#include "../Error/Error.h"
+#include <SDL2/SDL.h>
 
 namespace Game::Time {
 
-    struct Options : AllowError {
-        explicit Options(StandardError *error) : AllowError(error) {}
+    struct Options {
+        explicit Options() = default;
     };
 
-    class Time : public ErrorSupport {
+    class Time {
     public:
         explicit Time(int FPS, Game::Time::Options);
 

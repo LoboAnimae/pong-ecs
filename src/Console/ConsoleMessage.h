@@ -36,11 +36,11 @@ static struct ConsoleLoggingStruct {
         currentConsoleLevel = newLevel;
     }
 
-    ConsoleLevel getConsoleLevel() const {
+    [[nodiscard]] ConsoleLevel getConsoleLevel() const {
         return currentConsoleLevel;
     }
 
-    bool passesConsoleLevel(ConsoleLevel level) const {
+    [[nodiscard]] bool passesConsoleLevel(ConsoleLevel level) const {
         return level < currentConsoleLevel;
     }
 } ConsoleLogging;

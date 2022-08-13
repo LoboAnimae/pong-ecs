@@ -5,10 +5,11 @@
 #include "Screen.h"
 #include "../Console/ConsoleMessage.h"
 #include <SDL2/SDL.h>
+
+#include <utility>
 #include "../Coords/Coordinates.h"
-#include "../Misc.h"
-#include "../Structs/Geometry.h"
-#include "../Structs/Borrowed.h"
+#include "../Misc/Misc.h"
+#include "../Error/Error.h"
 
 using namespace std;
 
@@ -25,23 +26,18 @@ namespace Game::Screen {
                                       dims->getHeight(), 0);
             renderer = SDL_CreateRenderer(window, -1, 0);
             if (!(window && renderer)) {
-                setNewError("Could not initialize window or renderer", FATAL);
+                setNewError("Could not initialize window or renderer", true);
             }
         } else {
-            setNewError("Could not initialize SDL", PANIC);
+            setNewError("Could not initialize SDL", true);
         }
     }
 
-    Screen::Screen(string &p_title, Borrowing<Geometry::Dimensions *> *p_dims, Borrowing<ScreenOptions *> *p_options)
-            : ErrorSupport(p_options->get()->error, "Screen") {
+    Screen::Screen(string &p_title, Geometry::Dimensions p_dims, ScreenOptions p_options) {
         title = move(p_title);
-        masterError = p_options->get()->error;
-        dims = Geometry::Dimensions::New(p_dims->get()->getWidth(), p_dims->get()->getHeight());
+        dims = Geometry::Dimensions::New(p_dims.getWidth(), p_dims.getHeight());
         window = nullptr;
         renderer = nullptr;
-
-        delete p_dims;
-        delete p_options;
     }
 
     Screen::~Screen() {
@@ -52,21 +48,14 @@ namespace Game::Screen {
         delete dims;
     };
 
-    Screen::Screen(string &p_title, int p_width, int p_height, Borrowing<ScreenOptions *> *options)
-            : ErrorSupport(
-            options->get()->error, "Screen") {
-
-        auto opts = options->get()->error;
+    Screen::Screen(string &p_title, int p_width, int p_height, ScreenOptions options) {
         title = move(p_title);
-        masterError = options->get()->error;
         dims = Geometry::Dimensions::New(p_width, p_height);
         window = nullptr;
         renderer = nullptr;
-
-        delete options;
     }
 
-    void Screen::update(SDL_Rect &ball, SDL_Rect &paddle1, SDL_Rect &paddle2, float dT) {
+    void Screen::update(SDL_Rect &ball, SDL_Rect &paddle1, SDL_Rect &paddle2, float dT) const {
 
         /**
         *
@@ -111,12 +100,12 @@ namespace Game::Screen {
             // Right side wins
             if (screenCollider.sides.left.isToTheRightOf(ballCollider.sides.right)) {
                 ConsoleMessage::INFO("Right Player Wins!");
-                setNewError("Game Ended. Right Player won.", ERROR_TYPE::FATAL);
+                setNewError("Game Ended. Right Player won.", true);
             }
             // Left side wins
             if (screenCollider.sides.right.isToTheLeftOf(ballCollider.sides.left)) {
                 ConsoleMessage::INFO("Left Player Wins!");
-                setNewError("Game Ended. Left Player won.", ERROR_TYPE::FATAL);
+                setNewError("Game Ended. Left Player won.", true);
             }
         }
 
@@ -198,20 +187,13 @@ namespace Game::Screen {
     }
 
 
-    Screen *New(string title, Borrowing<Geometry::Dimensions *> *dimensions, Borrowing<ScreenOptions *> *options) {
+    Screen *New(string title, Geometry::Dimensions dimensions, ScreenOptions options) {
         return new Screen(title, dimensions, options);
     }
 
-    Screen *New(const char *title, int width, int height, Borrowing<ScreenOptions *> *options) {
-        auto borrowed = borrowedVar<Geometry::Dimensions *>(Geometry::Dimensions::New(width, height));
-        return New(title, borrowed, options);
+    Screen *New(string title, int width, int height, ScreenOptions options) {
+        return New(std::move(title), Geometry::Dimensions::New_Static(width, height), options);
     }
 
-    ScreenOptions::ScreenOptions(StandardError *error) : AllowError(error) {
 
-    }
-
-    ScreenOptions::ScreenOptions() : AllowError(nullptr) {
-
-    }
 }

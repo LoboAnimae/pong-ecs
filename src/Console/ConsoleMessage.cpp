@@ -3,6 +3,7 @@
 //
 
 #include "ConsoleMessage.h"
+
 #include <iostream>
 
 void ConsoleMessage::printMessage(char *level, char *message, Color color, ConsoleLevel lvl) {

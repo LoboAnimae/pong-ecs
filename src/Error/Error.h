@@ -1,52 +1,34 @@
 //
-// Created by yagdrassyl on 7/25/22.
+// Created by yagdrassyl on 8/11/22.
 //
 
 #ifndef PONGPROJECT_ERROR_H
 #define PONGPROJECT_ERROR_H
-#include <string>
-namespace Game {
 
-    enum ERROR_TYPE {
-        INFO,
-        FATAL,
-        PANIC
-    };
+struct GameError {
+    bool exists;
+    std::string message;
+    bool fatal;
 
+    GameError() : exists(false), fatal(false) {};
+};
 
-    struct StandardError {
-        std::string message;
-        ERROR_TYPE errorType;
-        std::string caller;
-        bool exists;
+static GameError gameError;
 
-        StandardError() : errorType(INFO), exists(false) {
-        }
-    };
+static void setNewError(std::string p_message, bool p_fatal) {
+    gameError.message = std::move(p_message);
+    gameError.fatal = p_fatal;
+    gameError.exists = true;
+};
 
-    class ErrorSupport {
-    public:
-        ErrorSupport(StandardError *error, std::string caller);
+static bool errorExists() {
+    return gameError.exists;
+}
 
-        std::string name;
-
-        bool errorIsSet();
-
-        void setErrorManager(StandardError* newError);
-        void setNewError(std::string error, ERROR_TYPE type);
-
-    protected:
-        StandardError *masterError;
-
-    };
-
-    struct AllowError {
-        StandardError *error;
-        explicit AllowError(StandardError *error) : error(error) {}
-    };
-
-    char *getError(ERROR_TYPE type);
-
-} // Game
+static void cleanError() {
+    gameError.message = "";
+    gameError.fatal = false;
+    gameError.exists = false;
+}
 
 #endif //PONGPROJECT_ERROR_H

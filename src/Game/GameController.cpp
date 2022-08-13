@@ -4,7 +4,7 @@
 
 #include "GameController.h"
 #include "../Console/ConsoleMessage.h"
-#include "../Static.h"
+#include "../Static/Static.h"
 
 
 void Game::Manager::runLoop() {

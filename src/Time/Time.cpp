@@ -37,7 +37,7 @@ namespace Game::Time {
         tick++;
     }
 
-    Time::Time(int p_FPS, Game::Time::Options options) : ErrorSupport(options.error, (char *) "Time Manager") {
+    Time::Time(int p_FPS, Game::Time::Options options)  {
         FPS = p_FPS;
         frameStartTimestamp = 0;
         frameEndTimestamp = 0;

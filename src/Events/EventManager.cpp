@@ -63,28 +63,18 @@ namespace Game::EventManager {
         }
     }
 
-    EventManager::EventManager(Game::EventManager::EventManagerOptions *options) : ErrorSupport(options->parentError,
-                                                                                                "EventHandler") {
-        delete options;
+    EventManager::EventManager(const Game::EventManager::EventManagerOptions& options) {
     }
 
-    EventManager *New(Game::EventManager::EventManagerOptions *options) {
+    EventManager *New(Game::EventManager::EventManagerOptions options) {
         return new EventManager(options);
     }
 
-    EventManager *New(StandardError *errorManager) {
-        auto options = new Game::EventManager::EventManagerOptions(errorManager);
+    EventManager *New() {
+        auto options = Game::EventManager::EventManagerOptions();
         return Game::EventManager::New(options);
     }
 
-
-    EventManagerOptions::EventManagerOptions() {
-        parentError = nullptr;
-    }
-
-    EventManagerOptions::EventManagerOptions(StandardError *opt_parentError) {
-        parentError = opt_parentError;
-    }
-
     EventManagerOptions::~EventManagerOptions() = default;
+    EventManagerOptions::EventManagerOptions() = default;
 } // Game

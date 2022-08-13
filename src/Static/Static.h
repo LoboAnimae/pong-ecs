@@ -5,8 +5,8 @@
 #ifndef PONGPROJECT_STATIC_H
 #define PONGPROJECT_STATIC_H
 
-#include "Error/Error.h"
-#include "Console/ConsoleMessage.h"
+#include "../Error/Error.h"
+#include "../Console/ConsoleMessage.h"
 namespace Game {
     static bool *isRunning;
     static StandardError *gameError;
