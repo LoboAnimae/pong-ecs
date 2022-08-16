@@ -13,7 +13,7 @@ public:
     void setup();
     void init();
     void runMainLoop();
-    void handleEvents();
+    void handleEvents(SDL_Rect& paddle1, SDL_Rect& paddle2, int moveSpeed);
     void update();
     void render();
     void tick() const;

@@ -41,24 +41,30 @@ bool compareKeys(SDL_KeyboardEvent keyStruct, SDL_Keycode expected) {
     return getKey(keyStruct) == expected;
 }
 
+bool isPast(){}
 
-void Game::handleEvents() {
+
+void Game::handleEvents(SDL_Rect& paddle1, SDL_Rect& paddle2, int moveSpeed) {
     SDL_Event event;
 
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
             case SDL_KEYDOWN: {
-                // First paddle
-                if (compareKeys(event.key, player1.up)) {
-                    std::cout << "P1 Up" << std::endl;
-                } else if (compareKeys(event.key, player1.down)) {
-                    std::cout << "P1 Down" << std::endl;
-                }
-                // Second paddle
-                if (compareKeys(event.key, player2.up)) {
-                    std::cout << "P2 Up" << std::endl;
-                } else if (compareKeys(event.key, player2.down)) {
-                    std::cout << "P2 Down" << std::endl;
+                if (compareKeys(event.key, SDLK_ESCAPE)) {
+                    // Pause the game
+                } else {
+                    // First paddle
+                    if (compareKeys(event.key, player1.up)) {
+                        std::cout << "P1 Up" << std::endl;
+                    } else if (compareKeys(event.key, player1.down)) {
+                        std::cout << "P1 Down" << std::endl;
+                    }
+                    // Second paddle
+                    if (compareKeys(event.key, player2.up)) {
+                        std::cout << "P2 Up" << std::endl;
+                    } else if (compareKeys(event.key, player2.down)) {
+                        std::cout << "P2 Down" << std::endl;
+                    }
                 }
             }
                 break;
