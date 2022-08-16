@@ -1,1 +1,1 @@
-add_library(GameController GameController.cpp)
+add_library(Game Game.cpp Game.h)
