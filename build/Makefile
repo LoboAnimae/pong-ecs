@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject
+CMAKE_SOURCE_DIR = /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/pong-ecs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/build
+CMAKE_BINARY_DIR = /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/pong-ecs/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/build/CMakeFiles /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/pong-ecs/build/CMakeFiles /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/pong-ecs/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/PongProject/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yagdrassyl/Documents/Code/University/GameEngineArchitecture/pong-ecs/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,317 +129,18 @@ PongProject/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/build
 .PHONY : PongProject/fast
 
-src/Console/ConsoleMessage.o: src/Console/ConsoleMessage.cpp.o
-.PHONY : src/Console/ConsoleMessage.o
-
-# target to build an object file
-src/Console/ConsoleMessage.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Console/ConsoleMessage.cpp.o
-.PHONY : src/Console/ConsoleMessage.cpp.o
-
-src/Console/ConsoleMessage.i: src/Console/ConsoleMessage.cpp.i
-.PHONY : src/Console/ConsoleMessage.i
-
-# target to preprocess a source file
-src/Console/ConsoleMessage.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Console/ConsoleMessage.cpp.i
-.PHONY : src/Console/ConsoleMessage.cpp.i
-
-src/Console/ConsoleMessage.s: src/Console/ConsoleMessage.cpp.s
-.PHONY : src/Console/ConsoleMessage.s
-
-# target to generate assembly for a file
-src/Console/ConsoleMessage.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Console/ConsoleMessage.cpp.s
-.PHONY : src/Console/ConsoleMessage.cpp.s
-
-src/Controller/Controller.o: src/Controller/Controller.cpp.o
-.PHONY : src/Controller/Controller.o
-
-# target to build an object file
-src/Controller/Controller.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Controller/Controller.cpp.o
-.PHONY : src/Controller/Controller.cpp.o
-
-src/Controller/Controller.i: src/Controller/Controller.cpp.i
-.PHONY : src/Controller/Controller.i
-
-# target to preprocess a source file
-src/Controller/Controller.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Controller/Controller.cpp.i
-.PHONY : src/Controller/Controller.cpp.i
-
-src/Controller/Controller.s: src/Controller/Controller.cpp.s
-.PHONY : src/Controller/Controller.s
-
-# target to generate assembly for a file
-src/Controller/Controller.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Controller/Controller.cpp.s
-.PHONY : src/Controller/Controller.cpp.s
-
-src/Coords/Coordinates.o: src/Coords/Coordinates.cpp.o
-.PHONY : src/Coords/Coordinates.o
-
-# target to build an object file
-src/Coords/Coordinates.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.o
-.PHONY : src/Coords/Coordinates.cpp.o
-
-src/Coords/Coordinates.i: src/Coords/Coordinates.cpp.i
-.PHONY : src/Coords/Coordinates.i
-
-# target to preprocess a source file
-src/Coords/Coordinates.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.i
-.PHONY : src/Coords/Coordinates.cpp.i
-
-src/Coords/Coordinates.s: src/Coords/Coordinates.cpp.s
-.PHONY : src/Coords/Coordinates.s
-
-# target to generate assembly for a file
-src/Coords/Coordinates.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Coords/Coordinates.cpp.s
-.PHONY : src/Coords/Coordinates.cpp.s
-
-src/Entity/Collider.o: src/Entity/Collider.cpp.o
-.PHONY : src/Entity/Collider.o
-
-# target to build an object file
-src/Entity/Collider.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Entity/Collider.cpp.o
-.PHONY : src/Entity/Collider.cpp.o
-
-src/Entity/Collider.i: src/Entity/Collider.cpp.i
-.PHONY : src/Entity/Collider.i
-
-# target to preprocess a source file
-src/Entity/Collider.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Entity/Collider.cpp.i
-.PHONY : src/Entity/Collider.cpp.i
-
-src/Entity/Collider.s: src/Entity/Collider.cpp.s
-.PHONY : src/Entity/Collider.s
-
-# target to generate assembly for a file
-src/Entity/Collider.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Entity/Collider.cpp.s
-.PHONY : src/Entity/Collider.cpp.s
-
-src/Entity/ControllableEntity.o: src/Entity/ControllableEntity.cpp.o
-.PHONY : src/Entity/ControllableEntity.o
-
-# target to build an object file
-src/Entity/ControllableEntity.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Entity/ControllableEntity.cpp.o
-.PHONY : src/Entity/ControllableEntity.cpp.o
-
-src/Entity/ControllableEntity.i: src/Entity/ControllableEntity.cpp.i
-.PHONY : src/Entity/ControllableEntity.i
-
-# target to preprocess a source file
-src/Entity/ControllableEntity.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Entity/ControllableEntity.cpp.i
-.PHONY : src/Entity/ControllableEntity.cpp.i
-
-src/Entity/ControllableEntity.s: src/Entity/ControllableEntity.cpp.s
-.PHONY : src/Entity/ControllableEntity.s
-
-# target to generate assembly for a file
-src/Entity/ControllableEntity.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Entity/ControllableEntity.cpp.s
-.PHONY : src/Entity/ControllableEntity.cpp.s
-
-src/Entity/Entity.o: src/Entity/Entity.cpp.o
-.PHONY : src/Entity/Entity.o
-
-# target to build an object file
-src/Entity/Entity.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Entity/Entity.cpp.o
-.PHONY : src/Entity/Entity.cpp.o
-
-src/Entity/Entity.i: src/Entity/Entity.cpp.i
-.PHONY : src/Entity/Entity.i
-
-# target to preprocess a source file
-src/Entity/Entity.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Entity/Entity.cpp.i
-.PHONY : src/Entity/Entity.cpp.i
-
-src/Entity/Entity.s: src/Entity/Entity.cpp.s
-.PHONY : src/Entity/Entity.s
-
-# target to generate assembly for a file
-src/Entity/Entity.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Entity/Entity.cpp.s
-.PHONY : src/Entity/Entity.cpp.s
-
-src/Error/Error.o: src/Error/Error.cpp.o
-.PHONY : src/Error/Error.o
-
-# target to build an object file
-src/Error/Error.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Error/Error.cpp.o
-.PHONY : src/Error/Error.cpp.o
-
-src/Error/Error.i: src/Error/Error.cpp.i
-.PHONY : src/Error/Error.i
-
-# target to preprocess a source file
-src/Error/Error.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Error/Error.cpp.i
-.PHONY : src/Error/Error.cpp.i
-
-src/Error/Error.s: src/Error/Error.cpp.s
-.PHONY : src/Error/Error.s
-
-# target to generate assembly for a file
-src/Error/Error.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Error/Error.cpp.s
-.PHONY : src/Error/Error.cpp.s
-
-src/Events/Event.o: src/Events/Event.cpp.o
-.PHONY : src/Events/Event.o
-
-# target to build an object file
-src/Events/Event.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Events/Event.cpp.o
-.PHONY : src/Events/Event.cpp.o
-
-src/Events/Event.i: src/Events/Event.cpp.i
-.PHONY : src/Events/Event.i
-
-# target to preprocess a source file
-src/Events/Event.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Events/Event.cpp.i
-.PHONY : src/Events/Event.cpp.i
-
-src/Events/Event.s: src/Events/Event.cpp.s
-.PHONY : src/Events/Event.s
-
-# target to generate assembly for a file
-src/Events/Event.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Events/Event.cpp.s
-.PHONY : src/Events/Event.cpp.s
-
-src/Game/GameController.o: src/Game/GameController.cpp.o
-.PHONY : src/Game/GameController.o
-
-# target to build an object file
-src/Game/GameController.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Game/GameController.cpp.o
-.PHONY : src/Game/GameController.cpp.o
-
-src/Game/GameController.i: src/Game/GameController.cpp.i
-.PHONY : src/Game/GameController.i
-
-# target to preprocess a source file
-src/Game/GameController.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Game/GameController.cpp.i
-.PHONY : src/Game/GameController.cpp.i
-
-src/Game/GameController.s: src/Game/GameController.cpp.s
-.PHONY : src/Game/GameController.s
-
-# target to generate assembly for a file
-src/Game/GameController.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Game/GameController.cpp.s
-.PHONY : src/Game/GameController.cpp.s
-
-src/Loop/Loop.o: src/Loop/Loop.cpp.o
-.PHONY : src/Loop/Loop.o
-
-# target to build an object file
-src/Loop/Loop.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Loop/Loop.cpp.o
-.PHONY : src/Loop/Loop.cpp.o
-
-src/Loop/Loop.i: src/Loop/Loop.cpp.i
-.PHONY : src/Loop/Loop.i
-
-# target to preprocess a source file
-src/Loop/Loop.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Loop/Loop.cpp.i
-.PHONY : src/Loop/Loop.cpp.i
-
-src/Loop/Loop.s: src/Loop/Loop.cpp.s
-.PHONY : src/Loop/Loop.s
-
-# target to generate assembly for a file
-src/Loop/Loop.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Loop/Loop.cpp.s
-.PHONY : src/Loop/Loop.cpp.s
-
-src/Misc.o: src/Misc.cpp.o
-.PHONY : src/Misc.o
-
-# target to build an object file
-src/Misc.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Misc.cpp.o
-.PHONY : src/Misc.cpp.o
-
-src/Misc.i: src/Misc.cpp.i
-.PHONY : src/Misc.i
-
-# target to preprocess a source file
-src/Misc.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Misc.cpp.i
-.PHONY : src/Misc.cpp.i
-
-src/Misc.s: src/Misc.cpp.s
-.PHONY : src/Misc.s
-
-# target to generate assembly for a file
-src/Misc.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Misc.cpp.s
-.PHONY : src/Misc.cpp.s
-
-src/Screen/Screen.o: src/Screen/Screen.cpp.o
-.PHONY : src/Screen/Screen.o
-
-# target to build an object file
-src/Screen/Screen.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Screen/Screen.cpp.o
-.PHONY : src/Screen/Screen.cpp.o
-
-src/Screen/Screen.i: src/Screen/Screen.cpp.i
-.PHONY : src/Screen/Screen.i
-
-# target to preprocess a source file
-src/Screen/Screen.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Screen/Screen.cpp.i
-.PHONY : src/Screen/Screen.cpp.i
-
-src/Screen/Screen.s: src/Screen/Screen.cpp.s
-.PHONY : src/Screen/Screen.s
-
-# target to generate assembly for a file
-src/Screen/Screen.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Screen/Screen.cpp.s
-.PHONY : src/Screen/Screen.cpp.s
-
-src/Time/Time.o: src/Time/Time.cpp.o
-.PHONY : src/Time/Time.o
-
-# target to build an object file
-src/Time/Time.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Time/Time.cpp.o
-.PHONY : src/Time/Time.cpp.o
-
-src/Time/Time.i: src/Time/Time.cpp.i
-.PHONY : src/Time/Time.i
-
-# target to preprocess a source file
-src/Time/Time.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Time/Time.cpp.i
-.PHONY : src/Time/Time.cpp.i
-
-src/Time/Time.s: src/Time/Time.cpp.s
-.PHONY : src/Time/Time.s
-
-# target to generate assembly for a file
-src/Time/Time.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PongProject.dir/build.make CMakeFiles/PongProject.dir/src/Time/Time.cpp.s
-.PHONY : src/Time/Time.cpp.s
+#=============================================================================
+# Target rules for targets named Game
+
+# Build rule for target.
+Game: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Game
+.PHONY : Game
+
+# fast build rule for target.
+Game/fast:
+	$(MAKE) $(MAKESILENT) -f src/Game/CMakeFiles/Game.dir/build.make src/Game/CMakeFiles/Game.dir/build
+.PHONY : Game/fast
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -473,46 +174,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... Game"
 	@echo "... PongProject"
-	@echo "... src/Console/ConsoleMessage.o"
-	@echo "... src/Console/ConsoleMessage.i"
-	@echo "... src/Console/ConsoleMessage.s"
-	@echo "... src/Controller/Controller.o"
-	@echo "... src/Controller/Controller.i"
-	@echo "... src/Controller/Controller.s"
-	@echo "... src/Coords/Coordinates.o"
-	@echo "... src/Coords/Coordinates.i"
-	@echo "... src/Coords/Coordinates.s"
-	@echo "... src/Entity/Collider.o"
-	@echo "... src/Entity/Collider.i"
-	@echo "... src/Entity/Collider.s"
-	@echo "... src/Entity/ControllableEntity.o"
-	@echo "... src/Entity/ControllableEntity.i"
-	@echo "... src/Entity/ControllableEntity.s"
-	@echo "... src/Entity/Entity.o"
-	@echo "... src/Entity/Entity.i"
-	@echo "... src/Entity/Entity.s"
-	@echo "... src/Error/Error.o"
-	@echo "... src/Error/Error.i"
-	@echo "... src/Error/Error.s"
-	@echo "... src/Events/Event.o"
-	@echo "... src/Events/Event.i"
-	@echo "... src/Events/Event.s"
-	@echo "... src/Game/GameController.o"
-	@echo "... src/Game/GameController.i"
-	@echo "... src/Game/GameController.s"
-	@echo "... src/Loop/Loop.o"
-	@echo "... src/Loop/Loop.i"
-	@echo "... src/Loop/Loop.s"
-	@echo "... src/Misc.o"
-	@echo "... src/Misc.i"
-	@echo "... src/Misc.s"
-	@echo "... src/Screen/Screen.o"
-	@echo "... src/Screen/Screen.i"
-	@echo "... src/Screen/Screen.s"
-	@echo "... src/Time/Time.o"
-	@echo "... src/Time/Time.i"
-	@echo "... src/Time/Time.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

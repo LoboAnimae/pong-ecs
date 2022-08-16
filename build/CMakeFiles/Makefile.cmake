@@ -8,9 +8,10 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
-  "CMakeFiles/3.23.2/CMakeCCompiler.cmake"
-  "CMakeFiles/3.23.2/CMakeCXXCompiler.cmake"
-  "CMakeFiles/3.23.2/CMakeSystem.cmake"
+  "CMakeFiles/3.23.3/CMakeCCompiler.cmake"
+  "CMakeFiles/3.23.3/CMakeCXXCompiler.cmake"
+  "CMakeFiles/3.23.3/CMakeSystem.cmake"
+  "../src/Game/CMakeLists.txt"
   "/usr/share/cmake/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"
@@ -23,9 +24,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake/Modules/Compiler/GNU-C.cmake"
   "/usr/share/cmake/Modules/Compiler/GNU-CXX.cmake"
   "/usr/share/cmake/Modules/Compiler/GNU.cmake"
-  "/usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
-  "/usr/share/cmake/Modules/FindPackageMessage.cmake"
-  "/usr/share/cmake/Modules/FindPkgConfig.cmake"
   "/usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake"
   "/usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake"
   "/usr/share/cmake/Modules/Platform/Linux-GNU.cmake"
@@ -42,9 +40,11 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/Game/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/PongProject.dir/DependInfo.cmake"
+  "src/Game/CMakeFiles/Game.dir/DependInfo.cmake"
   )

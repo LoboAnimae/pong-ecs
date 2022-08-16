@@ -4,6 +4,15 @@
 
 #include "Game.h"
 #include <SDL2/SDL.h>
+#include <iostream>
+
+struct Controls {
+    SDL_Keycode up;
+    SDL_Keycode down;
+};
+
+Controls player1 = Controls{.up = SDLK_UP, .down = SDLK_DOWN};
+Controls player2 = Controls{.up = SDLK_w, .down = SDLK_s};
 
 Game::Game() {
     // Allocate the variables in the heap
@@ -13,7 +22,7 @@ Game::Game() {
 
 void Game::tick() const {
     Uint32 currentTicks = SDL_GetTicks();
-    *deltaTime = (double)(currentTicks - *lastTick) / 1000.0f;
+    *deltaTime = (double) (currentTicks - *lastTick) / 1000.0f;
     *lastTick = currentTicks;
 }
 
@@ -24,20 +33,44 @@ void Game::runMainLoop() {
     tick();
 }
 
+SDL_Keycode getKey(SDL_KeyboardEvent keyStruct) {
+    return keyStruct.keysym.sym;
+}
+
+bool compareKeys(SDL_KeyboardEvent keyStruct, SDL_Keycode expected) {
+    return getKey(keyStruct) == expected;
+}
+
+
 void Game::handleEvents() {
     SDL_Event event;
 
     while (SDL_PollEvent(&event)) {
-    printf("Hello");
         switch (event.type) {
+            case SDL_KEYDOWN: {
+                // First paddle
+                if (compareKeys(event.key, player1.up)) {
+                    std::cout << "P1 Up" << std::endl;
+                } else if (compareKeys(event.key, player1.down)) {
+                    std::cout << "P1 Down" << std::endl;
+                }
+                // Second paddle
+                if (compareKeys(event.key, player2.up)) {
+                    std::cout << "P2 Up" << std::endl;
+                } else if (compareKeys(event.key, player2.down)) {
+                    std::cout << "P2 Down" << std::endl;
+                }
+            }
+                break;
             case SDL_QUIT: {
                 isRunning = false;
-
-            } break;
-
-            default: {}
+                std::cout << "Quit." << std::endl;
+            }
                 break;
-            
+            default: {
+            }
+                break;
+
         }
     }
 
